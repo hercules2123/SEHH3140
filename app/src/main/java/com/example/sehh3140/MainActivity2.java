@@ -52,4 +52,8 @@ public class MainActivity2 extends AppCompatActivity implements
         }
         return false;
     }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
