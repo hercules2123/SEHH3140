@@ -3,6 +3,9 @@ package com.example.sehh3140;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -54,6 +57,24 @@ public class MainActivity2 extends AppCompatActivity implements
     }
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+        new AlertDialog.Builder(MainActivity2.this)
+                .setTitle("提示")
+                .setMessage("是否登出")
+                .setPositiveButton("登出", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent();
+                        intent.setClass(MainActivity2.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                })
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                }).show();
+
     }
 }
