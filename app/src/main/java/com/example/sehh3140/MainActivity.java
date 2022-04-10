@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         //Add timerCount
         timeCount +=20;
         //Orange
-        orangeY+=12;
+        orangeY+=18;//12
         float orangeCenterX=orangeX+orange.getWidth()/2;
         float orangeCenterY=orangeY+orange.getWidth()/2;
 
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             pink.setY(pinkY);
         }
 //black
-        blackY+=18;
+        blackY+=12;
         float blackCenterX=blackX+black.getWidth()/2;
         float blackCenterY=blackY+black.getHeight()/2;
 
@@ -137,9 +137,11 @@ public class MainActivity extends AppCompatActivity {
             changeFrameWidth(frameWidth);
             //soundPlayer.playHitBlackSound();
 
-            if(frameWidth<=boxSize){
-                //game over
+            if(frameWidth<=boxSize || score > 150){
+
+                    //game over
                 gameOver();
+
             }
         }
         if(blackY>frameHeight){
@@ -193,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void gameOver(){
+
         //stop timer
         timer.cancel();
         timer=null;
@@ -213,6 +216,8 @@ public class MainActivity extends AppCompatActivity {
         orange.setVisibility(View.INVISIBLE);
         pink.setVisibility(View.INVISIBLE);
         //Update High score
+
+
 
 
 
@@ -284,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             }
-        } ,0,20     );
+        } ,0,50     );
 
 
     }
