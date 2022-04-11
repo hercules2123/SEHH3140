@@ -9,23 +9,42 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Score:"
-        android:textStyle="italic"
-        android:textSize="35sp"
-        android:textColor="#000"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:id="@+id/scoreLevel"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/scoreLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Score:"
+            android:textColor="#000"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="right"
+            android:layout_marginLeft="100dp"
+            android:background="@android:drawable/ic_media_pause"
+            android:gravity="right"
+            android:textSize="35sp"
+            android:onClick="pauseGame" />
+    </LinearLayout>
+
     <FrameLayout
         android:layout_width="450dp"
         android:layout_height="800dp"
@@ -56,18 +75,41 @@
             <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/food2"
+            android:src="@drawable/food3"
             android:id="@+id/food2"
                 android:visibility="invisible">
             </ImageView>
 
             <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/food"
-            android:id="@+id/food"
-            android:visibility="invisible">
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/food2"
+                android:id="@+id/food3"
+                android:visibility="invisible">
             </ImageView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/food4"
+                android:id="@+id/food4"
+                android:visibility="invisible">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/food5"
+                android:id="@+id/food5"
+                android:visibility="invisible">
+            </ImageView>
+
+        <ImageView
+            android:id="@+id/food"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:src="@drawable/food"
+            android:visibility="invisible"></ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"

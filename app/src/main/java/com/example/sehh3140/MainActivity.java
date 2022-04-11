@@ -10,6 +10,7 @@ package com.example.sehh3140;
         import android.view.MotionEvent;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.FrameLayout;
         import android.widget.ImageView;
         import android.widget.LinearLayout;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout startLayout;
 
     //Image
-    private ImageView box, black, orange, pink;
+    private ImageView box, black, orange,orange1,orange2,orange3, pink;
     private Drawable imageBoxRight, imageBoxLeft;
 
     //Size
@@ -38,13 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
     private  float boxX, boxY;
     private  float blackX,blackY;
-    private  float orangeX, orangeY;
+    private  float orangeX, orangeY,orangeA, orangeB,orangeC, orangeD,orangeE, orangeF;
     private  float pinkX, pinkY;
 
     //Score
     private TextView scoreLabel,highScoreLabel;
     private int score, highScore,timeScore;
     public int mark;
+    public Button btn1;
+    private Boolean stop = false;
 
     //Class
     private Timer timer;
@@ -69,9 +72,13 @@ public class MainActivity extends AppCompatActivity {
         box=findViewById(R.id.car);
         black=findViewById(R.id.shit);
         orange=findViewById(R.id.food2);
+        orange1=findViewById(R.id.food3);
+        orange2=findViewById(R.id.food4);
+        orange3=findViewById(R.id.food5);
         pink=findViewById(R.id.food);
         scoreLabel=findViewById(R.id.scoreLevel);
         highScoreLabel=findViewById(R.id.highScoreLabel);
+        btn1 = findViewById(R.id.btn1);
 
         imageBoxLeft=getResources().getDrawable(R.drawable.car);
         imageBoxRight=getResources().getDrawable(R.drawable.car);
@@ -79,11 +86,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public  void changePos(){
         //Add timerCount
         timeCount +=20;
+
         //Orange
-        orangeY+=18;//12
+        orangeY+=11;//12
         float orangeCenterX=orangeX+orange.getWidth()/2;
         float orangeCenterY=orangeY+orange.getWidth()/2;
 
@@ -98,6 +107,58 @@ public class MainActivity extends AppCompatActivity {
         }
         orange.setX(orangeX);
         orange.setY(orangeY);
+
+        //Orange1
+        orangeA+=10;//12
+        float orangeCenter1=orangeB+orange1.getWidth()/2;
+        float orangeCenter2=orangeA+orange1.getWidth()/2;
+
+        if(hitCheck(orangeCenter1,orangeCenter2)){
+            orangeA=frameHeight+100;
+            score +=15;
+            //soundPlayer.playHitOrangeSound();
+        }
+        if(orangeA>frameHeight){
+            orangeA=-100;
+            orangeB=(float) Math.floor(Math.random()*(frameWidth-orange1.getWidth()));
+        }
+        orange1.setX(orangeB);
+        orange1.setY(orangeA);
+
+        //Orange2
+        orangeC+=15;//12
+        float orangeCenter3=orangeD+orange2.getWidth()/2;
+        float orangeCenter4=orangeC+orange2.getWidth()/2;
+
+        if(hitCheck(orangeCenter3,orangeCenter4)){
+            orangeC=frameHeight+100;
+            score +=20;
+            //soundPlayer.playHitOrangeSound();
+        }
+        if(orangeC>frameHeight){
+            orangeC=-100;
+            orangeD=(float) Math.floor(Math.random()*(frameWidth-orange2.getWidth()));
+        }
+        orange2.setX(orangeD);
+        orange2.setY(orangeC);
+
+        //Orange3
+        orangeE+=12;//12
+        float orangeCenter5=orangeF+orange3.getWidth()/2;
+        float orangeCenter6=orangeE+orange3.getWidth()/2;
+
+        if(hitCheck(orangeCenter5,orangeCenter6)){
+            orangeE=frameHeight+100;
+            score +=15;
+            //soundPlayer.playHitOrangeSound();
+        }
+        if(orangeE>frameHeight){
+            orangeE=-100;
+            orangeF=(float) Math.floor(Math.random()*(frameWidth-orange3.getWidth()));
+        }
+        orange3.setX(orangeF);
+        orange3.setY(orangeE);
+
 //pink
         if(!pink_flg && timeCount % 10000==0){
             pink_flg=true;
@@ -137,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
             changeFrameWidth(frameWidth);
             //soundPlayer.playHitBlackSound();
 
-            if(frameWidth<=boxSize || score > 150){
+            if(frameWidth<=boxSize || score > 300){
 
                     //game over
                 gameOver();
@@ -214,6 +275,9 @@ public class MainActivity extends AppCompatActivity {
         box.setVisibility(View.INVISIBLE);
         black.setVisibility(View.INVISIBLE);
         orange.setVisibility(View.INVISIBLE);
+        orange1.setVisibility(View.INVISIBLE);
+        orange2.setVisibility(View.INVISIBLE);
+        orange3.setVisibility(View.INVISIBLE);
         pink.setVisibility(View.INVISIBLE);
         //Update High score
 
@@ -259,16 +323,25 @@ public class MainActivity extends AppCompatActivity {
         box.setX(0.0f);
         black.setY(3000.0f);
         orange.setY(3000.0f);
+        orange1.setY(3000.0f);
+        orange2.setY(3000.0f);
+        orange3.setY(3000.0f);
         pink.setY(3000.0f);
 
         blackY=black.getY();
         orangeX=black.getY();
+        orangeB=black.getY();
+        orangeD=black.getY();
+        orangeF=black.getY();
         pinkY=black.getY();
 
 
         box.setVisibility(View.VISIBLE);
         black.setVisibility(View.VISIBLE);
         orange.setVisibility(View.VISIBLE);
+        orange1.setVisibility(View.VISIBLE);
+        orange2.setVisibility(View.VISIBLE);
+        orange3.setVisibility(View.VISIBLE);
         pink.setVisibility(View.VISIBLE);
 
 
@@ -303,4 +376,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void pauseGame(View view) {
+        if(stop == false){
+            stop = true;
+
+        timer.cancel();
+        timer = null;
+
+        Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn1);
+        btn1.setBackgroundDrawable(stopGame);
+        gameFrame.setVisibility(View.VISIBLE);
+    }else{
+            stop = false;
+            Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn2end);
+            btn1.setBackgroundDrawable(stopGame);
+            gameFrame.setVisibility(View.VISIBLE);
+
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            changePos();
+                        }
+                    });
+                }
+            }, 0, 20);
+            ;
+
+        }
+    }
 }
