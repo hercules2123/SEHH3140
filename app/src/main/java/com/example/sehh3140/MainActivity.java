@@ -409,4 +409,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    public void homepage(View view) {
+        Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn3home);
+        gameOver();
+
+    }
+
+
 }
