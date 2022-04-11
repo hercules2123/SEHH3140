@@ -193,14 +193,15 @@ public class MainActivity extends AppCompatActivity {
 
         if(hitCheck(blackCenterX,blackCenterY)){
             blackY=frameHeight+100;
-            //change Frame
+            score -=10;
+            /** //change Frame
             frameWidth=frameWidth*80/100;
             changeFrameWidth(frameWidth);
             //soundPlayer.playHitBlackSound();
+            */
+            if(score > 300){ //frameWidth<=boxSize ||
 
-            if(frameWidth<=boxSize || score > 300){
-
-                    //game over
+                //game over
                 gameOver();
 
             }
