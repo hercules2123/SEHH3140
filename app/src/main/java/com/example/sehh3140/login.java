@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class login extends AppCompatActivity {
 
     EditText et1,et2 ;
     Button register,login,guest;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, MainActivity2.class);
+                intent.setClass(com.example.sehh3140.login.this, MainActivity2.class);
                 startActivity(intent);
 
             }

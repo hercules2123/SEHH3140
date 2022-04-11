@@ -64,7 +64,7 @@ public class MainActivity2 extends AppCompatActivity implements
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent();
-                        intent.setClass(MainActivity2.this, MainActivity.class);
+                        intent.setClass(MainActivity2.this, login.class);
                         startActivity(intent);
                     }
 
@@ -72,7 +72,7 @@ public class MainActivity2 extends AppCompatActivity implements
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
+                        dialogInterface.cancel();
                     }
                 }).show();
 
