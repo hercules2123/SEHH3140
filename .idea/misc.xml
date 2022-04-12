@@ -3,16 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/SEHH31402/app/src/main/res/drawable/ic_launcher_background.xml" value="0.4185" />
-        <entry key="..\:/SEHH31402/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/activity_main2.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/fragment_compare.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/fragment_couponview.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/fragment_personal.xml" value="0.33" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/fragment_userinfo.xml" value="0.17291666666666666" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/layout/listview.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH3140/app/src/main/res/menu/menu.xml" value="0.1875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/SEHH3140_2/app/src/main/res/layout/activity_main.xml" value="0.1125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/SEHH3140_2/app/src/main/res/layout/activity_main2.xml" value="0.1125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/SEHH3140_2/app/src/main/res/layout/fragment_changepassword.xml" value="0.1125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/SEHH3140_2/app/src/main/res/layout/fragment_userinfo.xml" value="0.1125" />
       </map>
     </option>
   </component>
