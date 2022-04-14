@@ -22,7 +22,7 @@ public class login extends AppCompatActivity {
         et1 =findViewById(R.id.et1);
         et2 =findViewById(R.id.et2);
         register = findViewById(R.id.register);
-        login = findViewById(R.id.login);
+        login = findViewById(R.id.cancel);
         guest = findViewById(R.id.Guest);
         guest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +30,20 @@ public class login extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(com.example.sehh3140.login.this, MainActivity2.class);
                 startActivity(intent);
+
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(com.example.sehh3140.login.this, com.example.sehh3140.register.class);
+                startActivity(intent);
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
