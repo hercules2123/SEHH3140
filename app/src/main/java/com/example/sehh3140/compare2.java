@@ -3,10 +3,6 @@ package com.example.sehh3140;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,6 +18,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,6 +30,8 @@ public class compare2 extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
+
+    private String abc;
 
     private ProgressBar progressBar;
     compare3 compare3 =new compare3();
@@ -73,7 +75,7 @@ public class compare2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compare2, container, false);
-
+        Log.i("mytag", "hi123");
         progressBar = view.findViewById(R.id.compareprice2_progressBar);
         lv = view.findViewById(R.id.compareprice2_lv);
         adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, test);
@@ -85,7 +87,7 @@ public class compare2 extends Fragment {
             String data = bundle.getString("key");
             Log.i("mytag", data);
         }
-
+        startASycnc1();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -121,7 +123,9 @@ public class compare2 extends Fragment {
     }
 
     public void startASycnc1() {
+        Log.i("mytag", "hi1" );
         new StartAsyncTask1().execute();
+        Log.i("mytag", "hi2" );
     }
 
     private  class StartAsyncTask1 extends AsyncTask<Void, Void, Void> {
@@ -194,12 +198,15 @@ public class compare2 extends Fragment {
 
 
 
-                return "a";
+
 
             }catch(Exception e) {
                 Log.i("mytag", e.toString());
             }
+            return null;
         }
+
+
     }
 }
 
