@@ -7,12 +7,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity2 extends AppCompatActivity implements
-        BottomNavigationView.OnNavigationItemSelectedListener{
+        BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView menu;
     game game =new game();
@@ -30,6 +31,9 @@ public class MainActivity2 extends AppCompatActivity implements
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
+
+
+
 
         switch (item.getItemId()){
             case R.id.compare:
@@ -77,4 +81,8 @@ public class MainActivity2 extends AppCompatActivity implements
                 }).show();
 
     }
-}
+
+
+
+    }
+

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ public class compare extends Fragment {
             "零食","麵類","罐頭","飲品"
     };
     ListView lv2;
+
+    compare2 compare2 =new compare2();
 
     public compare() {
         // Required empty public constructor
@@ -57,19 +61,42 @@ public class compare extends Fragment {
         lv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 if(position==0){
-
-                    startActivity(new Intent(getActivity(), compare2.class));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key",b[position]);
+                    Log.i("mytag", b[position]);
+                    compare2 fragment = new compare2();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                 }else if(position==1){
-
-                    startActivity(new Intent(getActivity(), compare2.class));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key",b[position]);
+                    Log.i("mytag", b[position]);
+                    compare2 fragment = new compare2();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                 }else if(position==2){
-
-                    startActivity(new Intent(getActivity(), compare2.class));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key",b[position]);
+                    Log.i("mytag", b[position]);
+                    compare2 fragment = new compare2();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                 }else if(position==3){
-
-                    startActivity(new Intent(getActivity(), compare2.class));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key",b[position]);
+                    Log.i("mytag", b[position]);
+                    compare2 fragment = new compare2();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                 }
 
             }
