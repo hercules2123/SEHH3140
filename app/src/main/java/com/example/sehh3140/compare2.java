@@ -143,8 +143,62 @@ public class compare2 extends Fragment {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            Log.e("startAsyncTask", "start");
-            return null;
+            try {
+
+                Log.i("mytag", "hi:" );
+
+
+                Document doc = Jsoup.connect("https://www.parknshop.com/zh-hk/rice-oil-noodles/rice/c/300100").get();
+                String htmlString = doc.html();
+                Log.i("mytag", htmlString);
+
+                Elements number = doc.select("div[class=product-container]");
+
+                String limitedNumberString = number.get(0).attr("data-product_list_total_items");
+
+                int limitedNumber = Integer. valueOf(limitedNumberString);
+
+                Log.i("mytag", "limitedNumber:" + limitedNumber);
+
+                for (int i = 0 ; i <limitedNumber ; i++) {
+
+                    //“椒麻雞”和它對應的圖片都在<div class="pic">中
+                    Elements titleAndPic = doc.select("div[class=pic productPrimaryPic]");
+                    //.select("div.product-container").select("div.item  initialized rendered").select("div.border")
+                    //.select("div.padding").select("div.pic productPrimaryPic");
+
+                    //使用Element.select(String selector)查詢元素，使用Node.attr(String key)方法取得一個屬性的值
+
+                    String abc = titleAndPic.get(i).select("a").select("img").attr("data-original");
+
+                    abc = "https://www.parknshop.com" + abc;
+
+
+
+                    Log.i("mytag1", "pic:" + abc);
+
+                    //所需連結在<div class="detail">中的<a>標籤裡面
+                    Elements url = doc.select("div[class=name]").select("a");
+
+                    Log.i("mytag", "url:" + url.get(i).select("p.text").text());
+                }
+
+
+
+                //原料在<p class="subcontent">中
+                Elements burden = doc.select("p.subcontent");
+                //對於一個元素中的文字，可以使用Element.text()方法
+                Log.i("mytag", "burden:" + burden.get(1).text());
+
+                Log.i("mytag", "abc:" + abc);
+
+
+
+                return "a";
+
+            }catch(Exception e) {
+                Log.i("mytag", e.toString());
+            }
         }
     }
 }
