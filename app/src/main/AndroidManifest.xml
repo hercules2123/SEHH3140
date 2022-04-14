@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SEHH3140">
         <activity
+            android:name=".compare3"
+            android:exported="false" />
+        <activity
+            android:name=".compare2"
+            android:exported="false" />
+        <activity
             android:name=".register"
             android:exported="false" />
         <activity

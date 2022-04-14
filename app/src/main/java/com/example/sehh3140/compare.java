@@ -18,7 +18,7 @@ public class compare extends Fragment {
     private String mParam1;
     private String mParam2;
     String[] b = {
-            "個人資料a","修改密碼b","查看優惠券c"
+            "零食","麵類","罐頭","飲品"
     };
     ListView lv2;
 
@@ -42,6 +42,7 @@ public class compare extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -52,16 +53,23 @@ public class compare extends Fragment {
         lv2 = view.findViewById(R.id.lv2);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview,R.id.tv2,b);
         lv2.setAdapter(adapter);
+
         lv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent();
+
                 if(position==0){
 
+                    startActivity(new Intent(getActivity(), compare2.class));
                 }else if(position==1){
 
+                    startActivity(new Intent(getActivity(), compare2.class));
                 }else if(position==2){
 
+                    startActivity(new Intent(getActivity(), compare2.class));
+                }else if(position==3){
+
+                    startActivity(new Intent(getActivity(), compare2.class));
                 }
 
             }
