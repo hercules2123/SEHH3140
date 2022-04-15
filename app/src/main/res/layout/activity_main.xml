@@ -67,7 +67,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/gameFrame"
         android:layout_gravity="center_horizontal"
-        android:background="#2196F3">
+        android:background="#3F51B5">
 
             <ImageView
                 android:layout_width="50dp"
@@ -172,7 +172,7 @@
                     android:id="@+id/highScoreLabel"
                     android:layout_gravity="center"
                     android:textSize="23sp"
-                    android:textColor="#000"
+                    android:textColor="#8BC34A"
                     android:textStyle="bold"
                     />
 
