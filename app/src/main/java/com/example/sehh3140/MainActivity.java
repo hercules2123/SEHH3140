@@ -218,12 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        if(mark > 10){ //frameWidth<=boxSize ||
 
-            //game over
-            gameOver();
-
-        }
 
     }
 
@@ -338,14 +333,11 @@ public class MainActivity extends AppCompatActivity {
             /** //change Frame
             frameWidth=frameWidth*80/100;
             changeFrameWidth(frameWidth);
-            //soundPlayer.playHitBlackSound();
+            //soundPlayer.playHitBlackSound();*/
 
-            if(score > 10){ //frameWidth<=boxSize ||
-
-                //game over
-                gameOver();
-
-            }*/
+            if(score > 150){ //frameWidth<=boxSize ||
+               gameOver();//game over
+            }
         }
         if(blackY>frameHeight){
             blackY=-100;
@@ -390,6 +382,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+
     }
     public  void  changeFrameWidth(int frameWidth){
         ViewGroup.LayoutParams params=gameFrame.getLayoutParams();
