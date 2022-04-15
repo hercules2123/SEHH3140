@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView scoreLabel,highScoreLabel;
     private int score, highScore,timeScore;
     public int mark;
-    public Button btn1;
+    public Button pauseGame,startGame,quitGame,homepage;
     private Boolean stop = false;
 
     //Class
@@ -78,11 +78,152 @@ public class MainActivity extends AppCompatActivity {
         pink=findViewById(R.id.food);
         scoreLabel=findViewById(R.id.scoreLevel);
         highScoreLabel=findViewById(R.id.highScoreLabel);
-        btn1 = findViewById(R.id.btn1);
+        homepage = findViewById(R.id.btn2);
+        quitGame = findViewById(R.id.quitGame);
+        startGame = findViewById(R.id.startGame);
+        pauseGame = findViewById(R.id.pauseGame);
+
 
         imageBoxLeft=getResources().getDrawable(R.drawable.car);
         imageBoxRight=getResources().getDrawable(R.drawable.car);
         //High Score
+
+        startGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                    start_flg=true;
+                    startLayout.setVisibility(View.INVISIBLE);
+                    if(frameHeight==0){
+                        frameHeight=gameFrame.getHeight();
+                        frameWidth= gameFrame.getWidth();
+                        initialFrameWidth=frameWidth;
+
+                        boxSize=box.getHeight();
+                        boxX=box.getX();
+                        boxY=box.getY();
+                    }
+                    frameWidth=initialFrameWidth;
+
+                    box.setX(0.0f);
+                    black.setY(3000.0f);
+                    orange.setY(3000.0f);
+                    orange1.setY(3000.0f);
+                    orange2.setY(3000.0f);
+                    orange3.setY(3000.0f);
+                    pink.setY(3000.0f);
+
+                    blackY=black.getY();
+                    orangeX=black.getY();
+                    orangeB=black.getY();
+                    orangeD=black.getY();
+                    orangeF=black.getY();
+                    pinkY=black.getY();
+
+
+                    box.setVisibility(View.VISIBLE);
+                    black.setVisibility(View.VISIBLE);
+                    orange.setVisibility(View.VISIBLE);
+                    orange1.setVisibility(View.VISIBLE);
+                    orange2.setVisibility(View.VISIBLE);
+                    orange3.setVisibility(View.VISIBLE);
+                    pink.setVisibility(View.VISIBLE);
+
+
+                    timeCount = 0;
+                    score=0;
+                    scoreLabel.setText("Score : 0");
+
+                    timer=new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            if(start_flg){
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        changePos();
+                                    }
+                                });
+                            }
+                        }
+                    } ,0,50     );
+
+
+
+            }
+
+        });
+        quitGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                    mark = score;
+                    if(mark>150){
+                        Toast.makeText(MainActivity.this, "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                    }else{Toast.makeText(MainActivity.this, "真可惜你的分數不足未能獲得優惠券下次努力吧", Toast.LENGTH_LONG).show();}
+
+
+            }
+
+        });
+        pauseGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(stop == false){
+                    stop = true;
+
+                    timer.cancel();
+                    timer = null;
+
+                    Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn1);
+                    pauseGame.setBackgroundDrawable(stopGame);
+                    gameFrame.setVisibility(View.VISIBLE);
+                }else{
+                    stop = false;
+                    Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn2end);
+                    pauseGame.setBackgroundDrawable(stopGame);
+                    gameFrame.setVisibility(View.VISIBLE);
+
+                    timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    changePos();
+                                }
+                            });
+                        }
+                    }, 0, 50);
+                    ;
+
+                }
+
+
+
+            }
+
+        });
+
+        homepage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn3home);
+                gameOver();
+
+            }
+
+
+        });
+
+        if(mark > 10){ //frameWidth<=boxSize ||
+
+            //game over
+            gameOver();
+
+        }
 
     }
 
@@ -198,13 +339,13 @@ public class MainActivity extends AppCompatActivity {
             frameWidth=frameWidth*80/100;
             changeFrameWidth(frameWidth);
             //soundPlayer.playHitBlackSound();
-            */
-            if(score > 300){ //frameWidth<=boxSize ||
+
+            if(score > 10){ //frameWidth<=boxSize ||
 
                 //game over
                 gameOver();
 
-            }
+            }*/
         }
         if(blackY>frameHeight){
             blackY=-100;
@@ -289,10 +430,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     @Override
     public  boolean onTouchEvent(MotionEvent event) {
         if (start_flg) {
@@ -303,117 +440,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return  true;
-    }
-
-
-
-    public  void startGame(View view){
-        start_flg=true;
-        startLayout.setVisibility(View.INVISIBLE);
-        if(frameHeight==0){
-            frameHeight=gameFrame.getHeight();
-            frameWidth= gameFrame.getWidth();
-            initialFrameWidth=frameWidth;
-
-            boxSize=box.getHeight();
-            boxX=box.getX();
-            boxY=box.getY();
-        }
-        frameWidth=initialFrameWidth;
-
-        box.setX(0.0f);
-        black.setY(3000.0f);
-        orange.setY(3000.0f);
-        orange1.setY(3000.0f);
-        orange2.setY(3000.0f);
-        orange3.setY(3000.0f);
-        pink.setY(3000.0f);
-
-        blackY=black.getY();
-        orangeX=black.getY();
-        orangeB=black.getY();
-        orangeD=black.getY();
-        orangeF=black.getY();
-        pinkY=black.getY();
-
-
-        box.setVisibility(View.VISIBLE);
-        black.setVisibility(View.VISIBLE);
-        orange.setVisibility(View.VISIBLE);
-        orange1.setVisibility(View.VISIBLE);
-        orange2.setVisibility(View.VISIBLE);
-        orange3.setVisibility(View.VISIBLE);
-        pink.setVisibility(View.VISIBLE);
-
-
-        timeCount = 0;
-        score=0;
-        scoreLabel.setText("Score : 0");
-
-        timer=new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if(start_flg){
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            changePos();
-                        }
-                    });
-                }
-            }
-        } ,0,50     );
-
-
-    }
-
-    public  void quitGame(View view){
-        mark = score;
-        if(mark>150){
-            Toast.makeText(this, "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
-        }else{Toast.makeText(this, "真可惜你的分數不足未能獲得優惠券下次努力吧", Toast.LENGTH_LONG).show();}
-
-    }
-
-
-    public void pauseGame(View view) {
-        if(stop == false){
-            stop = true;
-
-        timer.cancel();
-        timer = null;
-
-        Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn1);
-        btn1.setBackgroundDrawable(stopGame);
-        gameFrame.setVisibility(View.VISIBLE);
-    }else{
-            stop = false;
-            Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn2end);
-            btn1.setBackgroundDrawable(stopGame);
-            gameFrame.setVisibility(View.VISIBLE);
-
-            timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            changePos();
-                        }
-                    });
-                }
-            }, 0, 50);
-            ;
-
-        }
-    }
-
-    public void homepage(View view) {
-        Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn3home);
-        gameOver();
-
     }
 
 
