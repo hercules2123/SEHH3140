@@ -14,12 +14,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="目標分數:150"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="center"/>
+
         <TextView
             android:id="@+id/scoreLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -128,7 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="    接著貨品獲得分數\n仲要記住避開便便呀!!!"
-                    android:textSize="20sp"
+                    android:textSize="23sp"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="5dp"
@@ -138,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="按住畫面向右移動購物車\n    放開便會向左邊移動"
-                    android:textSize="20sp"
+                    android:textSize="23sp"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="5dp"
@@ -147,7 +156,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="    獲得禮券分數: 150\n達到分數後按換取禮券\n          以得到禮券"
+                    android:text="         便便 =-10分\n         蔬菜 = 15分\n         牛扒 = 15分\n         香蕉 = 15分\n達到分數後按換取禮券\n          以得到禮券"
                     android:id="@+id/highScoreLabel"
                     android:layout_gravity="center"
                     android:textSize="23sp"
