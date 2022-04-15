@@ -150,25 +150,36 @@
                     android:layout_height="wrap_content"
                     android:text="按住畫面向右移動購物車\n    放開便會向左邊移動"
                     android:textSize="23sp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="5dp"
-                    android:textColor="#952424"
-                    android:textStyle="bold"/>
+                    android:textColor="#FF9800"
+                    android:textStyle="bold"
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="         便便 =-10分\n         蔬菜 = 10分\n         香蕉 = 15分\n         薯片 = 15分\n         牛扒 = 20分\n         零食 = 30分\n達到分數後按換取禮券\n          以得到禮券"
+                    android:text="便便  =-10分"
+                    android:layout_gravity="center"
+                    android:textSize="23sp"
+                    android:textColor="#A4FF0000"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="         蔬菜 = 10分\n         香蕉 = 15分\n         薯片 = 15分\n         牛扒 = 20分\n         零食 = 30分\n\n\n達到分數後按換取禮券\n          以得到禮券"
                     android:id="@+id/highScoreLabel"
                     android:layout_gravity="center"
                     android:textSize="23sp"
                     android:textColor="#000"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    />
 
                 <Button
                     android:id="@+id/startGame"
-                    android:layout_width="150dp"
-                    android:layout_height="80dp"
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:background="#00FF0A"
