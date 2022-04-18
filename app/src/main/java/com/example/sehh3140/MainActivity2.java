@@ -13,11 +13,13 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity2 extends AppCompatActivity implements
-        BottomNavigationView.OnNavigationItemSelectedListener {
+        BottomNavigationView.OnNavigationItemSelectedListener{
 
     BottomNavigationView menu;
-    game game =new game();
+    game game = new game();
     compare compare = new compare();
+    //compare2 compare2 = new compare2();
+    //compare3 compare3 = new compare3();
     personal personal = new personal();
 
     @Override
@@ -30,12 +32,15 @@ public class MainActivity2 extends AppCompatActivity implements
         menu.setSelectedItemId(R.id.compare);
     }
 
-    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        //Bundle bundle = new Bundle();
+        //bundle.putString("key", "abc");
+        //compare.setArguments(bundle);
+        //compare2.setArguments(bundle);
+        //compare3.setArguments(bundle);
 
 
-
-
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.compare:
                 getSupportFragmentManager()
                         .beginTransaction()
@@ -59,6 +64,7 @@ public class MainActivity2 extends AppCompatActivity implements
         }
         return false;
     }
+
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(MainActivity2.this)
@@ -82,7 +88,19 @@ public class MainActivity2 extends AppCompatActivity implements
 
     }
 
+    /*
+    public void passDataformFirst2Seond(String data) {
+        Log.d("Hercules", "arrived passDatafromFirst2Seond");
+        Bundle bundle = new Bundle();
+        bundle.putString(compare2.DATA_RECEIVE, data);
+        compare2.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.compare, compare2)
+                .commit();
+    }*/
+}
 
 
-    }
+
+
+
 

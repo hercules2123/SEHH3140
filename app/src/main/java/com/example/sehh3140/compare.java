@@ -1,5 +1,6 @@
 package com.example.sehh3140;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,16 +20,31 @@ public class compare extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
+
     String[] b = {
             "零食","麵類","罐頭","飲品"
     };
     ListView lv2;
 
-    compare2 compare2 =new compare2();
+    compare2 fragment =new compare2();
 
     public compare() {
         // Required empty public constructor
     }
+    /*
+    public interface DataPassListener {
+        public void passDataformFirst2Seond(String data);
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mCallback = (DataPassListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement DataPassListener");
+        }
+    }*/
 
     public static compare newInstance(String param1, String param2) {
         compare fragment = new compare();
@@ -58,45 +74,55 @@ public class compare extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview,R.id.tv2,b);
         lv2.setAdapter(adapter);
 
+
         lv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 if(position==0){
+                    String word = b[position];
                     Bundle bundle = new Bundle();
-                    bundle.putString("key",b[position]);
-                    Log.i("mytag", b[position]);
-                    compare2 fragment = new compare2();
+                    bundle.putString("key",word);
+                    fragment = new compare2();
                     fragment.setArguments(bundle);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, compare2);
-                    transaction.commit();
+                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
+                            .commit();
+                    Log.i("mytag", b[position]);
+
+
                 }else if(position==1){
+                    String word = b[position];
                     Bundle bundle = new Bundle();
-                    bundle.putString("key",b[position]);
-                    Log.i("mytag", b[position]);
-                    compare2 fragment = new compare2();
+                    bundle.putString("key",word);
+                    fragment = new compare2();
                     fragment.setArguments(bundle);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, compare2);
-                    transaction.commit();
+                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
+                            .commit();
+                    Log.i("mytag", b[position]);
+
+
                 }else if(position==2){
+                    String word = b[position];
                     Bundle bundle = new Bundle();
-                    bundle.putString("key",b[position]);
-                    Log.i("mytag", b[position]);
-                    compare2 fragment = new compare2();
+                    bundle.putString("key",word);
+                    fragment = new compare2();
                     fragment.setArguments(bundle);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, compare2);
-                    transaction.commit();
+                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
+                            .commit();
+                    Log.i("mytag", b[position]);
+
+
                 }else if(position==3){
+                    String word = b[position];
                     Bundle bundle = new Bundle();
-                    bundle.putString("key",b[position]);
-                    Log.i("mytag", b[position]);
-                    compare2 fragment = new compare2();
+                    bundle.putString("key",word);
+                    fragment = new compare2();
                     fragment.setArguments(bundle);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, compare2);
-                    transaction.commit();
+                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
+                            .commit();
+                    Log.i("mytag", b[position]);
+
+
                 }
 
             }

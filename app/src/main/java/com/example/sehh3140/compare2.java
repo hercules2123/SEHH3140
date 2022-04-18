@@ -11,16 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,21 +29,32 @@ public class compare2 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private String abc;
+    final static  String DATA_RECEIVE = "data_receive";
 
-    private ProgressBar progressBar;
+
     compare3 compare3 =new compare3();
 
-    String[] test = {
-            "1","2","3","4"
-    };
+
+    String[][] snack1 = {{"1","2","3","4"}
+            ,{}};
+    String[] snack = {"1","2","3","4"};
+    String[][] noodle = {{"麻油味即食麵 原箱 30包 ","2","3","4"},{"https://www.parknshop.com/zh-hk/inst-noodle-sesame-oil-case/p/BP_157892"},
+            {"https://www.hktvmall.com/hktv/zh/main/%E6%97%A5%E6%B8%85%E9%A3%9F%E5%93%81%28%E9%A6%99%E6%B8%AF%29/s/H1061001/%E8%B6%85%E7%B4%9A%E5%B7%BF%E5%A0%B4/%E8%B6%85%E7%B4%9A%E5%B8%82%E5%A0%B4/%E5%8D%B3%E9%A3%9F%E9%BA%B5-%E9%BA%B5-%E6%84%8F%E7%B2%89/%E5%8D%B3%E9%A3%9F%E9%BA%B5/%E9%BA%B5/%E5%8E%9F%E7%AE%B1-%E9%BA%BB%E6%B2%B9%E5%91%B3%E9%BA%B5/p/H0888001_S_P10004812"},
+            {"https://www.ztore.com/tc/product/instant-noodle-sesame-oil-8000117-c5058",""}};
+    String[][] can = {{"1","2","3","4"}
+            ,{}};
+    String[][] drink = {{"1","2","3","4"}
+            ,{}};
     ListView lv;
 
     EditText ed;
 
+    String data;
     ArrayAdapter<String> adapter;
 
     ArrayList<HashMap<String, String>> productList;
+
+
 
 
     public compare2() {
@@ -75,27 +84,89 @@ public class compare2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compare2, container, false);
-        Log.i("mytag", "hi123");
-        progressBar = view.findViewById(R.id.compareprice2_progressBar);
+
         lv = view.findViewById(R.id.compareprice2_lv);
-        adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, test);
+        adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, snack);
         lv.setAdapter(adapter);
 
-        Bundle bundle = this.getArguments();
+        Bundle args = this.getArguments();
 
-        if(bundle != null){
-            String data = bundle.getString("key");
-            Log.i("mytag", data);
-        }
-        startASycnc1();
+            data = args.getString(DATA_RECEIVE);
+            Log.i("mytag1",""+data);
+        return view;
+
+
+            /*
+            switch (data) {
+                case "1" :
+                    adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, snack[0]);
+                    lv.setAdapter(adapter);
+                case "2" :
+                    adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, noodle[0]);
+                    lv.setAdapter(adapter);
+                case "3" :
+                    adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, can[0]);
+                    lv.setAdapter(adapter);
+                case "4" :
+                    adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, drink[0]);
+                    lv.setAdapter(adapter);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(data=="1"){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Website1",snack1[1][position]);
+                    bundle.putString("Website2",snack1[2][position]);
+                    bundle.putString("Website3",snack1[3][position]);
+                    compare3 fragment = new compare3();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare3);
+                    transaction.commit();
+                }else if(data=="2"){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Website1",noodle[1][position]);
+                    bundle.putString("Website2",noodle[2][position]);
+                    bundle.putString("Website3",noodle[3][position]);
 
+                    compare3 fragment = new compare3();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare3);
+                    transaction.commit();
+                }else if(data=="3"){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Website1",can[1][position]);
+                    bundle.putString("Website2",can[2][position]);
+                    bundle.putString("Website3",can[3][position]);
 
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.Fragment, compare3);
-                transaction.commit();
+                    compare3 fragment = new compare3();
+                    fragment.setArguments(bundle);
+
+                }else if(data=="4"){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Website1",drink[1][position]);
+                    bundle.putString("Website2",drink[2][position]);
+                    bundle.putString("Website3",drink[3][position]);
+
+                    compare3 fragment = new compare3();
+                    fragment.setArguments(bundle);
+
+                }
+
 
             }});
 
@@ -118,96 +189,11 @@ public class compare2 extends Fragment {
             public void afterTextChanged(Editable s) {
                 compare2.this.adapter.getFilter().filter(s);
             }
-        });
-        return view;
-    }
-
-    public void startASycnc1() {
-        Log.i("mytag", "hi1" );
-        new StartAsyncTask1().execute();
-        Log.i("mytag", "hi2" );
-    }
-
-    private  class StartAsyncTask1 extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
-            progressBar.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            progressBar.setVisibility(View.GONE);
-            progressBar.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out));
-            adapter.notifyDataSetChanged();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-
-                Log.i("mytag", "hi:" );
-
-
-                Document doc = Jsoup.connect("https://www.parknshop.com/zh-hk/rice-oil-noodles/rice/c/300100").get();
-                String htmlString = doc.html();
-                Log.i("mytag", htmlString);
-
-                Elements number = doc.select("div[class=product-container]");
-
-                String limitedNumberString = number.get(0).attr("data-product_list_total_items");
-
-                int limitedNumber = Integer. valueOf(limitedNumberString);
-
-                Log.i("mytag", "limitedNumber:" + limitedNumber);
-
-                for (int i = 0 ; i <limitedNumber ; i++) {
-
-                    //“椒麻雞”和它對應的圖片都在<div class="pic">中
-                    Elements titleAndPic = doc.select("div[class=pic productPrimaryPic]");
-                    //.select("div.product-container").select("div.item  initialized rendered").select("div.border")
-                    //.select("div.padding").select("div.pic productPrimaryPic");
-
-                    //使用Element.select(String selector)查詢元素，使用Node.attr(String key)方法取得一個屬性的值
-
-                    String abc = titleAndPic.get(i).select("a").select("img").attr("data-original");
-
-                    abc = "https://www.parknshop.com" + abc;
-
-
-
-                    Log.i("mytag1", "pic:" + abc);
-
-                    //所需連結在<div class="detail">中的<a>標籤裡面
-                    Elements url = doc.select("div[class=name]").select("a");
-
-                    Log.i("mytag", "url:" + url.get(i).select("p.text").text());
-                }
-
-
-
-                //原料在<p class="subcontent">中
-                Elements burden = doc.select("p.subcontent");
-                //對於一個元素中的文字，可以使用Element.text()方法
-                Log.i("mytag", "burden:" + burden.get(1).text());
-
-                Log.i("mytag", "abc:" + abc);
-
-
-
-
-
-            }catch(Exception e) {
-                Log.i("mytag", e.toString());
-            }
-            return null;
-        }
-
+        });*/
 
     }
+
+
 }
 
 
