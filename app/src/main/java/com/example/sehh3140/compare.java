@@ -31,7 +31,7 @@ public class compare extends Fragment {
     };
     ListView lv2;
 
-    compare2 fragment =new compare2();
+    compare2 compare2 =new compare2();
 
     public compare() {
         // Required empty public constructor
@@ -92,9 +92,9 @@ public class compare extends Fragment {
 
                     editor.putString(data, word);
                     editor.commit();
-                    //mCallback.passDataformFirst2Seond(word);
-                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
-                            .commit();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                     Log.i("mytag", b[position]);
 
 
@@ -106,9 +106,11 @@ public class compare extends Fragment {
                     //fragment.setArguments(bundle);
                     editor.putString(data, word);
                     editor.commit();
-                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
-                            .commit();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                     Log.i("mytag", b[position]);
+
 
 
                 }else if(position==2){
@@ -119,10 +121,10 @@ public class compare extends Fragment {
                     //fragment.setArguments(bundle);
                     editor.putString(data, word);
                     editor.commit();
-                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
-                            .commit();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                     Log.i("mytag", b[position]);
-
 
                 }else if(position==3){
                     String word = b[position];
@@ -132,10 +134,10 @@ public class compare extends Fragment {
                     //fragment.setArguments(bundle);
                     editor.putString(data, word);
                     editor.commit();
-                    getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
-                            .commit();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
                     Log.i("mytag", b[position]);
-
 
                 }
 

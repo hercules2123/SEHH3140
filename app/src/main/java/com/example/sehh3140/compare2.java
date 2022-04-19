@@ -41,20 +41,30 @@ public class compare2 extends Fragment {
     compare3 compare3 =new compare3();
 
 
-    String[][] snack1 = {{"1","2","3","4"}
+    String[][] snack = {{"1","2","3","4"}
+            ,{}
+            ,{}
             ,{}};
-    String[] snack = {"1","2","3","4"};
-    String[][] noodle = {{"麻油味即食麵 原箱 30包 ","2","3","4"},{"https://www.parknshop.com/zh-hk/inst-noodle-sesame-oil-case/p/BP_157892"},
-            {"https://www.hktvmall.com/hktv/zh/main/%E6%97%A5%E6%B8%85%E9%A3%9F%E5%93%81%28%E9%A6%99%E6%B8%AF%29/s/H1061001/%E8%B6%85%E7%B4%9A%E5%B7%BF%E5%A0%B4/%E8%B6%85%E7%B4%9A%E5%B8%82%E5%A0%B4/%E5%8D%B3%E9%A3%9F%E9%BA%B5-%E9%BA%B5-%E6%84%8F%E7%B2%89/%E5%8D%B3%E9%A3%9F%E9%BA%B5/%E9%BA%B5/%E5%8E%9F%E7%AE%B1-%E9%BA%BB%E6%B2%B9%E5%91%B3%E9%BA%B5/p/H0888001_S_P10004812"},
+
+
+    String[][] noodle = {{"日清合味道 海鮮味 大杯麵 ","日清合味道 香辣海鮮味 大杯麵","3","4"},
+             {"https://www.parknshop.com/zh-hk/big-cup-noodle-seafood/p/BP_369506","https://www.parknshop.com/zh-hk/big-cup-noodle-spicy-seafood/p/BP_369507"},
+            {"https://www.jhceshop.com/zh/Products/Detail?itemid=4897878630011","https://www.jhceshop.com/zh/Products/Detail?itemid=4897878630028"} ,
+             {"https://www.ztore.com/tc/product/big-cup-noodle-spicy-seafood-6003456#query=%E6%97%A5%E6%B8%85%E5%90%88%E5%91%B3%E9%81%93%E9%A6%99%E8%BE%A3%E6%B5%B7%E9%AE%AE%E5%91%B3%E5%A4%A7%E6%9D%AF%E9%BA%B5","https://www.ztore.com/tc/product/big-cup-noodle-spicy-seafood-6003456#query=%E6%97%A5%E6%B8%85%E5%90%88%E5%91%B3%E9%81%93%E9%A6%99%E8%BE%A3%E6%B5%B7%E9%AE%AE%E5%91%B3%E5%A4%A7%E6%9D%AF%E9%BA%B5"}};
+
+    String[][] can = {{"can","2","3","4"},
+            {"https://www.parknshop.com/zh-hk/inst-noodle-sesame-oil-case/p/BP_157892"},
+            {""},
             {"https://www.ztore.com/tc/product/instant-noodle-sesame-oil-8000117-c5058",""}};
-    String[][] can = {{"1","2","3","4"}
-            ,{}};
-    String[][] drink = {{"1","2","3","4"}
-            ,{}};
+
+    String[][] drink = {{"drink","2","3","4"},
+            {"https://www.parknshop.com/zh-hk/inst-noodle-sesame-oil-case/p/BP_157892"},
+            {""},
+            {"https://www.ztore.com/tc/product/instant-noodle-sesame-oil-8000117-c5058",""}};
     ListView lv;
 
     EditText ed;
-
+    String url;
 
     ArrayAdapter<String> adapter;
 
@@ -94,36 +104,28 @@ public class compare2 extends Fragment {
                 Context.MODE_PRIVATE);
 
         word = sharedpreferences.getString(data , "");
-        Log.i("mytag", word);
+        Log.i("mytag1", word);
         lv = view.findViewById(R.id.compareprice2_lv);
-        adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, snack);
-        lv.setAdapter(adapter);
 
 
-
-
-            /*
-            switch (data) {
-                case "1" :
+            switch (word) {
+                case "零食" :
                     adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, snack[0]);
                     lv.setAdapter(adapter);
-                case "2" :
+                    break;
+                case "麵類" :
                     adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, noodle[0]);
                     lv.setAdapter(adapter);
-                case "3" :
+                    break;
+                case "罐頭" :
                     adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, can[0]);
                     lv.setAdapter(adapter);
-                case "4" :
+                    break;
+                case "飲品" :
                     adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, drink[0]);
                     lv.setAdapter(adapter);
+                    break;
             }
-
-
-
-
-
-
-
 
 
 
@@ -132,17 +134,46 @@ public class compare2 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(data=="1"){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Website1",snack1[1][position]);
-                    bundle.putString("Website2",snack1[2][position]);
-                    bundle.putString("Website3",snack1[3][position]);
-                    compare3 fragment = new compare3();
-                    fragment.setArguments(bundle);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, compare3);
-                    transaction.commit();
-                }else if(data=="2"){
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                switch (word) {
+                    case "零食" :
+                        url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        editor.putString(data, url);
+                        editor.commit();
+
+                        transaction.replace(R.id.Fragment, compare3);
+                        transaction.commit();
+                        break;
+                    case "麵類" :
+                        url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        editor.putString(data, url);
+                        editor.commit();
+
+                        transaction.replace(R.id.Fragment, compare3);
+                        transaction.commit();
+                        break;
+                    case "罐頭" :
+                        url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        editor.putString(data, url);
+                        editor.commit();
+
+                        transaction.replace(R.id.Fragment, compare3);
+                        transaction.commit();
+                        break;
+                    case "飲品" :
+                        String url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        editor.putString(data, url);
+                        editor.commit();
+
+                        transaction.replace(R.id.Fragment, compare3);
+                        transaction.commit();
+                        break;
+                }
+                /*
+                if(word=="零食"){
+
+                }else if(word=="麵類"){
                     Bundle bundle = new Bundle();
                     bundle.putString("Website1",noodle[1][position]);
                     bundle.putString("Website2",noodle[2][position]);
@@ -150,10 +181,10 @@ public class compare2 extends Fragment {
 
                     compare3 fragment = new compare3();
                     fragment.setArguments(bundle);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
                     transaction.replace(R.id.Fragment, compare3);
                     transaction.commit();
-                }else if(data=="3"){
+                }else if(word=="罐頭"){
                     Bundle bundle = new Bundle();
                     bundle.putString("Website1",can[1][position]);
                     bundle.putString("Website2",can[2][position]);
@@ -162,7 +193,7 @@ public class compare2 extends Fragment {
                     compare3 fragment = new compare3();
                     fragment.setArguments(bundle);
 
-                }else if(data=="4"){
+                }else if(word=="飲品"){
                     Bundle bundle = new Bundle();
                     bundle.putString("Website1",drink[1][position]);
                     bundle.putString("Website2",drink[2][position]);
@@ -171,7 +202,7 @@ public class compare2 extends Fragment {
                     compare3 fragment = new compare3();
                     fragment.setArguments(bundle);
 
-                }
+                }*/
 
 
             }});
@@ -195,7 +226,7 @@ public class compare2 extends Fragment {
             public void afterTextChanged(Editable s) {
                 compare2.this.adapter.getFilter().filter(s);
             }
-        });*/
+        });
         return view;
 
     }

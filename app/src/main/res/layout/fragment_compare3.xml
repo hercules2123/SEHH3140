@@ -28,36 +28,36 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/HKTVMall"
+                android:id="@+id/jhceshop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="HKTVMall" />
+                android:text="日本城" />
 
             <TextView
-                android:id="@+id/HKTVMall_productName"
+                android:id="@+id/jhceshop_productName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/jhceshop_productDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <TextView
-                android:id="@+id/HKTVMall_productDetail"
+                android:id="@+id/jhceshop_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <TextView
-                android:id="@+id/HKTVMall_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/HKTVMall_Link"
+                android:id="@+id/jhceshop_Link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoLink="all"
                 android:clickable="true"
-                android:text="www.google.com" />
+                android:text="www.example.com" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,20 +75,20 @@
             <TextView
                 android:id="@+id/parknshop_productName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="40dp"
+                android:text="" />
 
             <TextView
                 android:id="@+id/parknshop_productDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/parknshop_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/parknshop_Link"
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:autoLink="all"
                 android:clickable="true"
-                android:text="www.google.com" />
+                android:text="www.example.com" />
 
         </LinearLayout>
 
@@ -115,20 +115,20 @@
             <TextView
                 android:id="@+id/zstore_productName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="40dp"
+                android:text="" />
 
             <TextView
                 android:id="@+id/zstore_productDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/zstore_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/zstore_Link"
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:autoLink="all"
                 android:clickable="true"
-                android:text="www.google.com" />
+                android:text="www.example.com" />
         </LinearLayout>
     </LinearLayout>
 
