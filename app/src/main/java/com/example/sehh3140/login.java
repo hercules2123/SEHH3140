@@ -7,11 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://database-125bb-default-rtdb.firebaseio.com/");
 
     EditText et1,et2 ;
     Button register,login,guest;
+    EditText phone;
 
 
     @Override
@@ -47,41 +65,10 @@ public class login extends AppCompatActivity {
 
             }
         });
-    }
-}
-
-package com.example.loginregisterfirebase;
-
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
-
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.TextView;
-        import android.widget.Toast;
-
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
-
-public class Login extends AppCompatActivity {
-
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://database-125bb-default-rtdb.firebaseio.com/");
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        final EditText phone = findViewById(R.id.phone);
-        final EditText password = findViewById(R.id.password);
-        final Button loginBtn = findViewById(R.id.loginBtn);
-        final TextView registerNowBtn = findViewById(R.id.registerNowBtn);
+         EditText phone = findViewById(R.id.phone);
+         EditText password = findViewById(R.id.password);
+         Button loginBtn = findViewById(R.id.loginBtn);
+         TextView registerNowBtn = findViewById(R.id.registerNowBtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,3 +122,5 @@ public class Login extends AppCompatActivity {
         });
     }
 }
+
+

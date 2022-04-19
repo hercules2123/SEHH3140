@@ -1,6 +1,21 @@
 package com.example.sehh3140;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class register extends AppCompatActivity {
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140-default-rtdb.firebaseio.com/");
 
     EditText et1,et2,et3;
     Button register,cancel;
@@ -37,51 +53,16 @@ public class register extends AppCompatActivity {
 
             }
         });
-    }
-}
-
-package com.example.loginregisterfirebase;
-
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
-
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.TextView;
-        import android.widget.Toast;
-
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
-
-public class Register extends AppCompatActivity {
-
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140-default-rtdb.firebaseio.com/");
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-        final EditText fullname = findViewById(R.id.fullname);
-        final EditText email = findViewById(R.id.email);
-        final EditText phone = findViewById(R.id.phone);
-        final EditText password = findViewById(R.id.password);
-        final EditText conPassword = findViewById(R.id.conPassword);
-
-        final Button registerBtn = findViewById(R.id.registerBtn);
-        final TextView loginNowBtn = findViewById(R.id.loginNow);
+        EditText phone = findViewById(R.id.phone);
+        Button registerBtn = findViewById(R.id.registerBtn);
+        TextView loginNowBtn = findViewById(R.id.loginNow);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                final String fullnameTxt = fullname.getText().toString();
+               String fullnameTxt = fullname.getText().toString();
                 final String emailTxt = email.getText().toString();
                 final String phoneTxt = phone.getText().toString();
                 final String passwordTxt = password.getText().toString();
@@ -136,6 +117,8 @@ public class Register extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }
+
+
+
