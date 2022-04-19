@@ -1,12 +1,14 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
+
 }
 
 android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.assignment2"
+        applicationId "com.example.sehh3140"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -42,6 +44,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'org.jsoup:jsoup:1.14.3'
+    implementation platform('com.google.firebase:firebase-bom:29.3.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-database'
+
 
 
 }
