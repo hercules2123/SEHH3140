@@ -2,6 +2,7 @@ package com.example.sehh3140;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,11 +17,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class compare extends Fragment {
+    SharedPreferences sharedpreferences;
+    public static final String selected = "selected";
+    public static final String data = "data";
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-
+    //DataPassListener mCallback;
     String[] b = {
             "零食","麵類","罐頭","飲品"
     };
@@ -70,6 +75,9 @@ public class compare extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compare, container, false);
 
+        sharedpreferences = getActivity().getSharedPreferences(selected, //create a sharedpreferences
+                Context.MODE_PRIVATE);
+
         lv2 = view.findViewById(R.id.lv2);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview,R.id.tv2,b);
         lv2.setAdapter(adapter);
@@ -78,13 +86,13 @@ public class compare extends Fragment {
         lv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                SharedPreferences.Editor editor = sharedpreferences.edit();
                 if(position==0){
                     String word = b[position];
-                    Bundle bundle = new Bundle();
-                    bundle.putString("key",word);
-                    fragment = new compare2();
-                    fragment.setArguments(bundle);
+
+                    editor.putString(data, word);
+                    editor.commit();
+                    //mCallback.passDataformFirst2Seond(word);
                     getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
                             .commit();
                     Log.i("mytag", b[position]);
@@ -92,10 +100,12 @@ public class compare extends Fragment {
 
                 }else if(position==1){
                     String word = b[position];
-                    Bundle bundle = new Bundle();
-                    bundle.putString("key",word);
-                    fragment = new compare2();
-                    fragment.setArguments(bundle);
+                    //Bundle bundle = new Bundle();
+                    //bundle.putString("key",word);
+                    //fragment = new compare2();
+                    //fragment.setArguments(bundle);
+                    editor.putString(data, word);
+                    editor.commit();
                     getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
                             .commit();
                     Log.i("mytag", b[position]);
@@ -103,10 +113,12 @@ public class compare extends Fragment {
 
                 }else if(position==2){
                     String word = b[position];
-                    Bundle bundle = new Bundle();
-                    bundle.putString("key",word);
-                    fragment = new compare2();
-                    fragment.setArguments(bundle);
+                    //Bundle bundle = new Bundle();
+                    //bundle.putString("key",word);
+                    //fragment = new compare2();
+                    //fragment.setArguments(bundle);
+                    editor.putString(data, word);
+                    editor.commit();
                     getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
                             .commit();
                     Log.i("mytag", b[position]);
@@ -114,10 +126,12 @@ public class compare extends Fragment {
 
                 }else if(position==3){
                     String word = b[position];
-                    Bundle bundle = new Bundle();
-                    bundle.putString("key",word);
-                    fragment = new compare2();
-                    fragment.setArguments(bundle);
+                    //Bundle bundle = new Bundle();
+                    //bundle.putString("key",word);
+                    //fragment = new compare2();
+                    //fragment.setArguments(bundle);
+                    editor.putString(data, word);
+                    editor.commit();
                     getFragmentManager().beginTransaction().replace(R.id.compare, fragment)
                             .commit();
                     Log.i("mytag", b[position]);

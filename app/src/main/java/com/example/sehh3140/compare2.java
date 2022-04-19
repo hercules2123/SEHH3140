@@ -3,6 +3,8 @@ package com.example.sehh3140;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -28,8 +30,12 @@ public class compare2 extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
+    SharedPreferences sharedpreferences;
+    public static final String selected = "selected";
+    public static final String data = "data";
+    String word;
 
-    final static  String DATA_RECEIVE = "data_receive";
+    //final static  String DATA_RECEIVE = "data_receive";
 
 
     compare3 compare3 =new compare3();
@@ -49,7 +55,7 @@ public class compare2 extends Fragment {
 
     EditText ed;
 
-    String data;
+
     ArrayAdapter<String> adapter;
 
     ArrayList<HashMap<String, String>> productList;
@@ -84,16 +90,16 @@ public class compare2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compare2, container, false);
+        sharedpreferences = getActivity().getSharedPreferences(selected, //create a sharedpreferences
+                Context.MODE_PRIVATE);
 
+        word = sharedpreferences.getString(data , "");
+        Log.i("mytag", word);
         lv = view.findViewById(R.id.compareprice2_lv);
         adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview2 , R.id.compareprice2_tv, snack);
         lv.setAdapter(adapter);
 
-        Bundle args = this.getArguments();
 
-            data = args.getString(DATA_RECEIVE);
-            Log.i("mytag1",""+data);
-        return view;
 
 
             /*
@@ -190,6 +196,7 @@ public class compare2 extends Fragment {
                 compare2.this.adapter.getFilter().filter(s);
             }
         });*/
+        return view;
 
     }
 
