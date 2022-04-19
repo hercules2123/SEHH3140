@@ -98,7 +98,10 @@ public class game extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_game, container, false);
+
+
 
         gameFrame=view.findViewById(R.id.gameFrame);
         startLayout=view.findViewById(R.id.startLayout);
@@ -255,6 +258,17 @@ public class game extends Fragment {
         return view;
     }
 
+
+    public  boolean onTouchEvent(MotionEvent event) {
+        if (start_flg) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                action_flg=true;
+            }  else if(event.getAction()==MotionEvent.ACTION_UP){
+                action_flg=false;
+            }
+        }
+        return  true;
+    }
 
 
     public  void changePos(){
@@ -457,16 +471,6 @@ public class game extends Fragment {
     }
 
 
-    @Override
-    public  boolean onTouchEvent(MotionEvent event) {
-        if (start_flg) {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                action_flg=true;
-            }  else if(event.getAction()==MotionEvent.ACTION_UP){
-                action_flg=false;
-            }
-        }
-        return  true;
-    }
+
 
 }
