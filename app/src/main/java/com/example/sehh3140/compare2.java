@@ -50,7 +50,7 @@ public class compare2 extends Fragment {
     String[][] noodle = {{"日清合味道 海鮮味 大杯麵 ","日清合味道 香辣海鮮味 大杯麵","3","4"},
              {"https://www.parknshop.com/zh-hk/big-cup-noodle-seafood/p/BP_369506","https://www.parknshop.com/zh-hk/big-cup-noodle-spicy-seafood/p/BP_369507"},
             {"https://www.jhceshop.com/zh/Products/Detail?itemid=4897878630011","https://www.jhceshop.com/zh/Products/Detail?itemid=4897878630028"} ,
-             {"https://www.ztore.com/tc/product/big-cup-noodle-spicy-seafood-6003456#query=%E6%97%A5%E6%B8%85%E5%90%88%E5%91%B3%E9%81%93%E9%A6%99%E8%BE%A3%E6%B5%B7%E9%AE%AE%E5%91%B3%E5%A4%A7%E6%9D%AF%E9%BA%B5","https://www.ztore.com/tc/product/big-cup-noodle-spicy-seafood-6003456#query=%E6%97%A5%E6%B8%85%E5%90%88%E5%91%B3%E9%81%93%E9%A6%99%E8%BE%A3%E6%B5%B7%E9%AE%AE%E5%91%B3%E5%A4%A7%E6%9D%AF%E9%BA%B5"}};
+             {"https://www.ztore.com/tc/product/big-cup-noodle-seafood-6003457#query=%E6%97%A5%E6%B8%85%E5%90%88%E5%91%B3%E9%81%93%20%E6%B5%B7%E9%AE%AE%E5%91%B3%20%E5%A4%A7%E6%9D%AF%E9%BA%B5","https://www.ztore.com/tc/product/big-cup-noodle-spicy-seafood-6003456#query=%E6%97%A5%E6%B8%85%E5%90%88%E5%91%B3%E9%81%93%E9%A6%99%E8%BE%A3%E6%B5%B7%E9%AE%AE%E5%91%B3%E5%A4%A7%E6%9D%AF%E9%BA%B5"}};
 
     String[][] can = {{"can","2","3","4"},
             {"https://www.parknshop.com/zh-hk/inst-noodle-sesame-oil-case/p/BP_157892"},
