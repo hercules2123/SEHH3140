@@ -32,15 +32,13 @@
                     android:textSize="34sp" />
 
                 <EditText
-                    android:id="@+id/et1"
+                    android:id="@+id/registeret1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="#000000"
-                    android:elegantTextHeight="false"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:textColor="#000000" />
+                    android:text="Name" />
+
             </TableRow>
 
             <TableRow
@@ -57,14 +55,13 @@
                     android:textSize="34sp" />
 
                 <EditText
-                    android:id="@+id/et2"
+                    android:id="@+id/registeret2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="#000000"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:textColor="#000000" />
+                    android:text="Name" />
+
             </TableRow>
 
         </TableLayout>
@@ -85,7 +82,7 @@
                 android:textSize="34sp" />
 
             <EditText
-                android:id="@+id/et3"
+                android:id="@+id/registeret3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -101,17 +98,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/cancel"
+                android:id="@+id/registercancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="#F3F2F2"
-                android:text="cancel"
-                android:textColor="#000000" />
+                android:text="Button" />
 
             <Button
-                android:id="@+id/register"
+                android:id="@+id/registerregister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"

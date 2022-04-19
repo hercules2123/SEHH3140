@@ -2,7 +2,6 @@ package com.example.sehh3140;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -18,10 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 public class register extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140-default-rtdb.firebaseio.com/");
@@ -34,11 +29,11 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        et1 = findViewById(R.id.et1);
-        et2 = findViewById(R.id.et2);
-        et3 = findViewById(R.id.et3);
-        register = findViewById(R.id.register);
-        cancel = findViewById(R.id.cancel);
+        et1 = findViewById(R.id.registeret1);
+        et2 = findViewById(R.id.registeret2);
+        et3 = findViewById(R.id.registeret3);
+        register = findViewById(R.id.registerregister);
+        cancel = findViewById(R.id.registercancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,26 +48,23 @@ public class register extends AppCompatActivity {
 
             }
         });
-        EditText phone = findViewById(R.id.phone);
-        Button registerBtn = findViewById(R.id.registerBtn);
         TextView loginNowBtn = findViewById(R.id.loginNow);
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-               String fullnameTxt = fullname.getText().toString();
-                final String emailTxt = email.getText().toString();
-                final String phoneTxt = phone.getText().toString();
-                final String passwordTxt = password.getText().toString();
-                final String conPasswordTxt = conPassword.getText().toString();
 
-                if(fullnameTxt.isEmpty() || emailTxt.isEmpty() || phoneTxt.isEmpty() || passwordTxt.isEmpty()){
-                    Toast.makeText(Register.this,"Please fill all fields", Toast.LENGTH_SHORT).show();
+                String phoneTxt = et1.getText().toString();
+                 String passwordTxt = et2.getText().toString();
+                 String conPasswordTxt = et3.getText().toString();
+
+                if(phoneTxt.isEmpty() || passwordTxt.isEmpty() || conPasswordTxt.isEmpty()){
+                    Toast.makeText(register.this,"Please fill all fields", Toast.LENGTH_SHORT).show();
                 }
                 else if(!passwordTxt.equals(conPasswordTxt)){
-                    Toast.makeText(Register.this,"Passwords are not matching", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(register.this,"Passwords are not matching", Toast.LENGTH_SHORT).show();
                 }
                 else{
 
@@ -81,16 +73,15 @@ public class register extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             if(snapshot.hasChild(phoneTxt)){
-                                Toast.makeText(Register.this,"Phone is already registered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(register.this,"Phone is already registered", Toast.LENGTH_SHORT).show();
 
                             }
                             else{
 
-                                databaseReference.child("users").child(phoneTxt).child("fullname").setValue(fullnameTxt);
-                                databaseReference.child("users").child(phoneTxt).child("email").setValue(emailTxt);
+                                databaseReference.child("users").child(phoneTxt).child("fullname").setValue(p);
                                 databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
 
-                                Toast.makeText(Register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         }
@@ -101,11 +92,10 @@ public class register extends AppCompatActivity {
                         }
                     });
 
-                    databaseReference.child("users").child(phoneTxt).child("fullname").setValue(fullnameTxt);
-                    databaseReference.child("users").child(phoneTxt).child("email").setValue(emailTxt);
+                    databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                     databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
 
-                    Toast.makeText(Register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
                     finish();
                 }
 

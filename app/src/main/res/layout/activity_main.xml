@@ -34,7 +34,7 @@
                     android:textSize="34sp" />
 
                 <EditText
-                    android:id="@+id/et1"
+                    android:id="@+id/loginet1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -59,14 +59,12 @@
                     android:textSize="34sp" />
 
                 <EditText
-                    android:id="@+id/et2"
+                    android:id="@+id/loginet2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="#000000"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#000000" />
+                    android:inputType="textPersonName" />
+
             </TableRow>
 
         </TableLayout>
@@ -81,14 +79,11 @@
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="#F3F2F2"
-                android:text="register"
-                android:textColor="#000000" />
+                android:text="register" />
 
             <Button
-                android:id="@+id/cancel"
+                android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
