@@ -1,14 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game">
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    android:padding="10dp"
+    tools:context=".MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="目標分數:150"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/scoreLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Score:"
+            android:textColor="#000"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/home"
+            />
+
+        <Button
+            android:id="@+id/pauseGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@android:drawable/ic_media_pause"
+            android:gravity="right"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="450dp"
+        android:layout_height="800dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/gameFrame"
+        android:layout_gravity="center_horizontal"
+        android:background="#3F51B5">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/car"
+            android:id="@+id/car"
+            android:layout_gravity="bottom"
+            android:visibility="invisible">
+
+        </ImageView>
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/shit"
+            android:id="@+id/shit"
+            android:visibility="invisible">
+
+        </ImageView>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/food3"
+            android:id="@+id/food2"
+            android:visibility="invisible">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/food2"
+            android:id="@+id/food3"
+            android:visibility="invisible">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/food4"
+            android:id="@+id/food4"
+            android:visibility="invisible">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/food5"
+            android:id="@+id/food5"
+            android:visibility="invisible">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/food"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:src="@drawable/food"
+            android:visibility="invisible">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startLayout"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    接著貨品獲得分數\n仲要記住避開便便呀!!!"
+                android:textSize="23sp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:textColor="#CDDC39"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="按住畫面向右移動購物車\n    放開便會向左邊移動"
+                android:textSize="23sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:textColor="#FF9800"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="便便  =-10分"
+                android:layout_gravity="center"
+                android:textSize="23sp"
+                android:textColor="#A4FF0000"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="         蔬菜 = 10分\n         香蕉 = 15分\n         薯片 = 15分\n         牛扒 = 20分\n         零食 = 30分\n\n\n達到分數後按換取禮券\n          以得到禮券"
+                android:id="@+id/highScoreLabel"
+                android:layout_gravity="center"
+                android:textSize="23sp"
+                android:textColor="#8BC34A"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/startGame"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#00FF0A"
+                android:text="開始"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/quitGame"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#00FF0A"
+                android:text="換取禮券"
+                android:textSize="24sp" />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+
+</LinearLayout>
