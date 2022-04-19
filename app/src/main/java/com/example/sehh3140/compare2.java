@@ -138,7 +138,7 @@ public class compare2 extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (word) {
                     case "零食" :
-                        url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        url = snack[1][position] +";" + snack[2][position] +";" +snack[3][position];
                         editor.putString(data, url);
                         editor.commit();
 
@@ -154,7 +154,7 @@ public class compare2 extends Fragment {
                         transaction.commit();
                         break;
                     case "罐頭" :
-                        url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        url = can[1][position] +";" + can[2][position] +";" +can[3][position];
                         editor.putString(data, url);
                         editor.commit();
 
@@ -162,7 +162,7 @@ public class compare2 extends Fragment {
                         transaction.commit();
                         break;
                     case "飲品" :
-                        String url = noodle[1][position] +";" + noodle[2][position] +";" +noodle[3][position];
+                        String url = drink[1][position] +";" + drink[2][position] +";" +drink[3][position];
                         editor.putString(data, url);
                         editor.commit();
 
