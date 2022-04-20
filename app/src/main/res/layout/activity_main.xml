@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#000000"
+    android:background="@drawable/bggg"
     tools:context=".login">
 
 
@@ -108,6 +108,13 @@
             android:backgroundTint="#F3F2F2"
             android:text="Guest"
             android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pmm" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

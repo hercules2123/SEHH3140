@@ -24,6 +24,7 @@ public class register extends AppCompatActivity {
     EditText et1,et2,et3;
     Button register,cancel;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class register extends AppCompatActivity {
         et2 = findViewById(R.id.registeret2);
         et3 = findViewById(R.id.registeret3);
         register = findViewById(R.id.registerregister);
+
         cancel = findViewById(R.id.registercancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,10 +55,10 @@ public class register extends AppCompatActivity {
                  String conPasswordTxt = et3.getText().toString();
 
                 if(phoneTxt.isEmpty() || passwordTxt.isEmpty() || conPasswordTxt.isEmpty()){
-                    Toast.makeText(register.this,"Please fill all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(register.this,"請輸入所有資料", Toast.LENGTH_SHORT).show();
                 }
                 else if(!passwordTxt.equals(conPasswordTxt)){
-                    Toast.makeText(register.this,"Passwords are not matching", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(register.this,"兩個密碼並不相同", Toast.LENGTH_SHORT).show();
                 }
                 else{
 
@@ -68,13 +70,13 @@ public class register extends AppCompatActivity {
                                 String getPassword = snapshot.child(phoneTxt).child("fullname").getValue(String.class);
 
                                 if(getPassword.equals(phoneTxt)){
-                                    Toast.makeText(register.this, "the username is already registered", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(register.this, "用戶名稱已被註冊", Toast.LENGTH_SHORT).show();
                                 }else{
 
                                     databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                                     databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
 
-                                    Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(register.this,"成功註冊", Toast.LENGTH_SHORT).show();
                                     finish();
                                 }
                             }

@@ -37,7 +37,6 @@ public class compare2 extends Fragment {
     String word;
     Button compare2btn;
 
-    //final static  String DATA_RECEIVE = "data_receive";
 
 
 
@@ -55,7 +54,7 @@ public class compare2 extends Fragment {
             {"https://www.jhceshop.com/zh/Products/Detail?itemid=4897878630011","https://www.jhceshop.com/zh/Products/Detail?itemid=4897878630028","https://www.jhceshop.com/zh/Products/Detail?itemid=8801043014830","https://www.jhceshop.com/zh/Products/Detail?itemid=8801073142145","https://www.jhceshop.com/zh/Products/Detail?itemid=8076800195057","https://www.jhceshop.com/zh/Products/Detail?itemid=8076802085738","https://www.jhceshop.com/zh/Products/Detail?itemid=8076808050440","https://www.jhceshop.com/zh/Products/Detail?itemid=8006222600075"} ,
             {"https://www.ztore.com/tc/product/big-cup-noodle-seafood-6003457","https://www.ztore.com/tc/product/big-cup-noodle-spicy-seafood-6003456","https://www.ztore.com/tc/product/shin-ramen---shrimp-flavor-1039426","https://www.ztore.com/tc/product/beef-bone-white-soup-ramen-1025382","https://www.ztore.com/tc/product/spaghetti-5-1049653","https://www.ztore.com/tc/product/penne-rigate-73-1049652","https://www.ztore.com/tc/product/chifferi-1002009","https://www.ztore.com/tc/product/linguine-1051888"}};
 
-    String[] can_goods = {"s三祖 午餐肉","地捫 日式辣油沙甸魚","地捫 茄汁沙甸魚","特別好 忌廉粟米蓉","特別好 原粒粟米","美味牌 葵花籽油浸吞拿魚","美味牌 礦泉水浸吞拿魚","天龍牌 紅燒瑤柱鮑魚","官燕棧 紅燒鮑魚４頭","官燕棧 紅燒鮑魚８—１０頭"};
+    String[] can_goods = {"三祖 午餐肉","地捫 日式辣油沙甸魚","地捫 茄汁沙甸魚","特別好 忌廉粟米蓉","特別好 原粒粟米","美味牌 葵花籽油浸吞拿魚","美味牌 礦泉水浸吞拿魚","天龍牌 紅燒瑤柱鮑魚","官燕棧 紅燒鮑魚４頭","官燕棧 紅燒鮑魚８—１０頭"};
     String[][] can_website =
             {{"https://www.parknshop.com/zh-hk/luncheon-meat/p/BP_387188","https://www.parknshop.com/zh-hk/sardines-in-chilli-oil/p/BP_416341","https://www.parknshop.com/zh-hk/sardines-in-tomato-sauce/p/BP_103162","https://www.parknshop.com/zh-hk/cream-style-corn/p/BP_101451","https://www.parknshop.com/zh-hk/whole-kernel-corn/p/BP_101452","https://www.parknshop.com/zh-hk/tuna-in-sunflower-oil/p/BP_115295","https://www.parknshop.com/zh-hk/tuna-in-spring-water/p/BP_112976","https://www.parknshop.com/zh-hk/aba-in-brown-sauce-w-dried-scallop6p/p/BP_413070","https://www.parknshop.com/zh-hk/abalone-in-braised-sauce-4-pcs/p/BP_497438","https://www.parknshop.com/zh-hk/abalone-in-braised-sauce-8-10-pcs/p/BP_497446"},
             {"https://www.jhceshop.com/zh/Products/Detail?itemid=8801047181293","https://www.jhceshop.com/zh/Products/Detail?itemid=748485200071","https://www.jhceshop.com/zh/Products/Detail?itemid=748485200064","https://www.jhceshop.com/zh/Products/Detail?itemid=011194296452","https://www.jhceshop.com/zh/Products/Detail?itemid=011194301224","https://www.jhceshop.com/zh/Products/Detail?itemid=4891329331021","https://www.jhceshop.com/zh/Products/Detail?itemid=4891329331014","https://www.jhceshop.com/zh/Products/Detail?itemid=4895158008017","https://www.jhceshop.com/zh/Products/Detail?itemid=4895158008024","https://www.jhceshop.com/zh/Products/Detail?itemid=4895158008017"},
@@ -74,7 +73,6 @@ public class compare2 extends Fragment {
 
     ArrayAdapter<String> adapter;
 
-    ArrayList<HashMap<String, String>> productList;
 
     public compare2() {
         // Required empty public constructor
