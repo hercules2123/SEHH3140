@@ -1,9 +1,11 @@
 package com.example.sehh3140;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,10 +55,8 @@ public class userinfo extends Fragment {
 
 
         a=view.findViewById(R.id.a);
-        Bundle x =new Bundle();
-        String ab = x.getString("key");
-
-        a.setText(ab);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        a.setText(sharedPreferences.getString("key","hello"));
 
 
 
