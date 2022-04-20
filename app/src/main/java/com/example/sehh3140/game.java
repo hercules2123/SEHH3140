@@ -95,16 +95,8 @@ public class game extends Fragment {
         }
     }
 
-    public  boolean onTouchEvent(MotionEvent event) {
-        if (start_flg) {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                action_flg=true;
-            }  else if(event.getAction()==MotionEvent.ACTION_UP){
-                action_flg=false;
-            }
-        }
-        return  true;
-    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -268,6 +260,21 @@ public class game extends Fragment {
         });
         // Inflate the layout for this fragment
 
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                    if (start_flg) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            action_flg=true;
+                        }  else if(event.getAction()==MotionEvent.ACTION_UP){
+                            action_flg=false;
+                        }
+                    }
+                    return  true;
+                }
+
+        });
 
 
         return view;
