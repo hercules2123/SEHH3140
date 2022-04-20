@@ -8,11 +8,13 @@ android {
     compileSdk 32
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.example.sehh3140"
-        minSdk 26
-        targetSdk 32
+        minSdk 22
+        targetSdk 26
         versionCode 1
         versionName "1.0"
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -23,6 +25,7 @@ android {
 
     buildTypes {
         release {
+            multiDexKeepFile file('multidex-config.txt')
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -47,6 +50,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.3.1')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
+    implementation 'com.android.support:multidex:1.0.3'
 
 
 

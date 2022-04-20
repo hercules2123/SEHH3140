@@ -32,7 +32,7 @@ public class login extends AppCompatActivity {
 
         et1 =findViewById(R.id.loginet1);
         et2 =findViewById(R.id.loginet2);
-        register = findViewById(R.id.registerregister);
+        register = findViewById(R.id.register);
         login = findViewById(R.id.login);
         guest = findViewById(R.id.Guest);
         guest.setOnClickListener(new View.OnClickListener() {
@@ -50,12 +50,6 @@ public class login extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(com.example.sehh3140.login.this, com.example.sehh3140.register.class);
                 startActivity(intent);
-            }
-        });
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
         et1 = findViewById(R.id.loginet1);

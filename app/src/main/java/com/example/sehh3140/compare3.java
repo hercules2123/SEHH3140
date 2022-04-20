@@ -72,7 +72,7 @@ public class compare3 extends Fragment {
     public static final String data = "data";
     String word;
     Button compare3btn;
-    compare2 compare2 = new compare2();
+
 
     public compare3() {
         // Required empty public constructor
@@ -122,6 +122,7 @@ public class compare3 extends Fragment {
 
         word = sharedpreferences.getString(data , "");
 
+
         String[] website = word.split(";");
             website1 = website[0];
             website2 = website[1];
@@ -133,7 +134,7 @@ public class compare3 extends Fragment {
 
             startASycnc1(website1,website2,website3);
 
-
+        compare2 compare2 = new compare2();
             compare3btn= view.findViewById(R.id.compare3_returnbutton);
             compare3btn.setOnClickListener(new View.OnClickListener() {
                 @Override

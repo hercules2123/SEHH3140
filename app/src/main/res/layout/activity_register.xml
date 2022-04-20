@@ -106,7 +106,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="#F3F2F2"
-                android:text="Button"
+                android:text="cancel"
                 android:textColor="#000000" />
 
             <Button

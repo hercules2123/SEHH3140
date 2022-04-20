@@ -25,31 +25,15 @@ public class compare extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    //DataPassListener mCallback;
     String[] b = {
             "零食","麵類","罐頭","飲品"
     };
     ListView lv2;
 
-    compare2 compare2 =new compare2();
 
     public compare() {
         // Required empty public constructor
     }
-    /*
-    public interface DataPassListener {
-        public void passDataformFirst2Seond(String data);
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        try {
-            mCallback = (DataPassListener) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + "must implement DataPassListener");
-        }
-    }*/
 
     public static compare newInstance(String param1, String param2) {
         compare fragment = new compare();
@@ -77,7 +61,7 @@ public class compare extends Fragment {
 
         sharedpreferences = getActivity().getSharedPreferences(selected, //create a sharedpreferences
                 Context.MODE_PRIVATE);
-
+        compare2 compare2 =new compare2();
         lv2 = view.findViewById(R.id.lv2);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.comparelistview,R.id.tv2,b);
         lv2.setAdapter(adapter);
@@ -100,10 +84,6 @@ public class compare extends Fragment {
 
                 }else if(position==1){
                     String word = b[position];
-                    //Bundle bundle = new Bundle();
-                    //bundle.putString("key",word);
-                    //fragment = new compare2();
-                    //fragment.setArguments(bundle);
                     editor.putString(data, word);
                     editor.commit();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -115,10 +95,6 @@ public class compare extends Fragment {
 
                 }else if(position==2){
                     String word = b[position];
-                    //Bundle bundle = new Bundle();
-                    //bundle.putString("key",word);
-                    //fragment = new compare2();
-                    //fragment.setArguments(bundle);
                     editor.putString(data, word);
                     editor.commit();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -128,10 +104,6 @@ public class compare extends Fragment {
 
                 }else if(position==3){
                     String word = b[position];
-                    //Bundle bundle = new Bundle();
-                    //bundle.putString("key",word);
-                    //fragment = new compare2();
-                    //fragment.setArguments(bundle);
                     editor.putString(data, word);
                     editor.commit();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
