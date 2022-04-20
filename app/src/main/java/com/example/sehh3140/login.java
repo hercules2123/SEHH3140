@@ -2,7 +2,9 @@ package com.example.sehh3140;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140database-f8582-default-rtdb.firebaseio.com/");
-
+    SharedPreferences sharedpreferences;
     EditText et1,et2 ;
     Button register,login,guest;
-    EditText phone;
+    String user;
+
 
 
     @Override
@@ -59,7 +62,7 @@ public class login extends AppCompatActivity {
 
                  String phoneTxt = et1.getText().toString();
                  String passwordTxt = et2.getText().toString();
-
+                sharedpreferences = getSharedPreferences(phoneTxt,Context.MODE_PRIVATE);
                 if(phoneTxt.isEmpty() || passwordTxt.isEmpty()){
                     Toast.makeText(login.this,"Please enter your mobile or password", Toast.LENGTH_SHORT).show();
                 }
@@ -77,6 +80,10 @@ public class login extends AppCompatActivity {
                                     Toast.makeText(login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
 
                                     startActivity(new Intent(login.this, MainActivity2.class));
+                                    Bundle bundle =new Bundle();
+                                    bundle.putString("key",phoneTxt);
+                                    userinfo userinfo=new userinfo();
+                                    userinfo.setArguments(bundle);
                                     finish();
                                 }
                                 else{
@@ -94,10 +101,13 @@ public class login extends AppCompatActivity {
                         }
                     });
                 }
+
             }
         });
 
     }
+
+
 }
 
 
