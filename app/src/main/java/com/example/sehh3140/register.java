@@ -46,14 +46,6 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            }
-        });
-        //TextView loginNowBtn = findViewById(R.id.loginNow);
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
 
 
                 String phoneTxt = et1.getText().toString();
@@ -73,17 +65,20 @@ public class register extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             if(snapshot.hasChild(phoneTxt)){
-                                Toast.makeText(register.this,"Phone is already registered", Toast.LENGTH_SHORT).show();
+                                String getPassword = snapshot.child(phoneTxt).child("fullname").getValue(String.class);
 
+                                if(getPassword.equals(phoneTxt)){
+                                    Toast.makeText(register.this, "the username is already registered", Toast.LENGTH_SHORT).show();
+                                }else{
+
+                                    databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
+                                    databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
+
+                                    Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
                             }
-                            else{
 
-                                databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
-                                databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-
-                                Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
                         }
 
                         @Override
@@ -92,21 +87,11 @@ public class register extends AppCompatActivity {
                         }
                     });
 
-                    databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
-                    databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-
-                    Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
-                    finish();
                 }
 
             }
         });
-        /*loginNowBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });*/
+
     }
 }
 

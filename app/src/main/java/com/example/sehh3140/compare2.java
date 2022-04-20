@@ -100,6 +100,7 @@ public class compare2 extends Fragment {
         sharedpreferences = getActivity().getSharedPreferences(selected, //create a sharedpreferences
                 Context.MODE_PRIVATE);
         compare3 compare3 = new compare3();
+        compare compare= new compare();
 
         word = sharedpreferences.getString(data , "");
         Log.i("mytag1", word);
@@ -196,6 +197,9 @@ public class compare2 extends Fragment {
         compare2btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment, compare);
+                transaction.commit();
             }
         });
 
