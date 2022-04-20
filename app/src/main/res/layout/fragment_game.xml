@@ -33,24 +33,26 @@
 
         <Button
             android:id="@+id/btn2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/home" />
+            android:background="@drawable/ic_stop_btn3home"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/pauseGame"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:drawable/ic_media_pause" />
+            android:background="@android:drawable/ic_media_pause"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/gameFrame"
-        android:layout_width="450dp"
-        android:layout_height="582dp"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
         android:layout_gravity="center_horizontal"
         android:background="#3F51B5">
 
@@ -165,7 +167,6 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="#00FF0A"
                 android:text="開始"
                 android:textSize="24sp" />
 
@@ -175,7 +176,6 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="#00FF0A"
                 android:text="換取禮券"
                 android:textSize="24sp" />
 
