@@ -11,7 +11,7 @@ android {
         multiDexEnabled true
         applicationId "com.example.sehh3140"
         minSdk 22
-        targetSdk 26
+        targetSdk 22
         versionCode 1
         versionName "1.0"
 
