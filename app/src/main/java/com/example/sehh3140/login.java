@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://database-125bb-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140database-f8582-default-rtdb.firebaseio.com/");
 
     EditText et1,et2 ;
     Button register,login,guest;

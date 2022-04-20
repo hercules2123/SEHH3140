@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import android.content.Intent;
 
 public class register extends AppCompatActivity {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140database-f8582-default-rtdb.firebaseio.com/");
 
     EditText et1,et2,et3;
     Button register,cancel;
