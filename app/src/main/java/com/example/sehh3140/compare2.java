@@ -199,7 +199,9 @@ public class compare2 extends Fragment {
         compare2btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment, compare);
+                transaction.commit();
             }
         });
 

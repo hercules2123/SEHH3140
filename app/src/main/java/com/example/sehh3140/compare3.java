@@ -2,6 +2,7 @@ package com.example.sehh3140;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import android.content.Context;
@@ -17,6 +18,8 @@ import android.view.animation.AnimationUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -68,6 +71,8 @@ public class compare3 extends Fragment {
     public static final String selected = "selected";
     public static final String data = "data";
     String word;
+    Button compare3btn;
+    compare2 compare2 = new compare2();
 
     public compare3() {
         // Required empty public constructor
@@ -129,6 +134,15 @@ public class compare3 extends Fragment {
             startASycnc1(website1,website2,website3);
 
 
+            compare3btn= view.findViewById(R.id.compare3_returnbutton);
+            compare3btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.commit();
+                }
+            });
 
 
 
