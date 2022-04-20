@@ -3,18 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/activity_main.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/activity_main2.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/activity_register.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/comparelistview.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/comparelistview2.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_changepassword.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_compare.xml" value="0.23020833333333332" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_compare2.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_compare3.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_couponview.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_userinfo.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/listview.xml" value="0.1875" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/fragment_changepassword.xml" value="0.36614583333333334" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/fragment_compare.xml" value="0.36614583333333334" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/fragment_compare2.xml" value="0.36614583333333334" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/fragment_compare3.xml" value="0.36614583333333334" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/fragment_couponview.xml" value="0.36614583333333334" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/layout/fragment_game.xml" value="0.20572916666666666" />
+        <entry key="..\:/BIG6/SEHH3140/app/src/main/res/menu/menu.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

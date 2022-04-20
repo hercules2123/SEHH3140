@@ -2,4 +2,6 @@
     <string name="app_name">SEHH3140</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn1">使用指引</string>
+    <string name="tvv1">使用指引:\n1.揀選理想尋找的食物種類\n2.然後你可以選擇您想要的食物或是使用搜尋功能尋找\n3.揀選食物後便會跳出食物在不同商舖的尺寸,價錢和相對應的購買網址\n4.最後你可以按返回上一頁返回主頁或是直接按底下的回到分類主頁</string>
 </resources>

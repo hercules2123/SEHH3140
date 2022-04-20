@@ -14,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class compare extends Fragment {
     SharedPreferences sharedpreferences;
@@ -25,6 +27,8 @@ public class compare extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
+    public Button btn1;
+    public TextView tvv1;
     String[] b = {
             "零食","麵類","罐頭","飲品"
     };
@@ -58,7 +62,8 @@ public class compare extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compare, container, false);
-
+        btn1=view.findViewById(R.id.btn1);
+        tvv1=view.findViewById(R.id.tvv1);
         sharedpreferences = getActivity().getSharedPreferences(selected,
                 Context.MODE_PRIVATE);
         compare2 compare2 =new compare2();
@@ -112,7 +117,15 @@ public class compare extends Fragment {
             }
         });
 
-
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tvv1.getVisibility() == View.GONE){
+                    tvv1.setVisibility(View.VISIBLE);}
+                else if(tvv1.getVisibility() == View.VISIBLE){
+                    tvv1.setVisibility(View.GONE);}
+            }
+        });
         return view;
     }
 }
