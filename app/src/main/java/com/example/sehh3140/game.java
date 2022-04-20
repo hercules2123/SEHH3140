@@ -164,7 +164,8 @@ public class game extends Fragment {
                 orange2.setVisibility(View.VISIBLE);
                 orange3.setVisibility(View.VISIBLE);
                 pink.setVisibility(View.VISIBLE);
-
+                homepage.setVisibility(View.VISIBLE);
+                pauseGame.setVisibility(View.VISIBLE);
 
                 timeCount = 0;
                 score=0;
@@ -190,6 +191,7 @@ public class game extends Fragment {
             }
 
         });
+
         quitGame.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
