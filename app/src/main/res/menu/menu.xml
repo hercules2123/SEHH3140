@@ -3,11 +3,14 @@
 
     <item
         android:id="@+id/compare"
+        android:icon="@android:drawable/ic_search_category_default"
         android:title="分類" />
     <item
         android:id="@+id/game"
+        android:icon="@drawable/car"
         android:title="遊戲" />
     <item
         android:id="@+id/personal"
+        android:icon="?android:attr/actionModeFindDrawable"
         android:title="個人檔案" />
 </menu>
