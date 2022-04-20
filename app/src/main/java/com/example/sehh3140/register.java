@@ -48,7 +48,7 @@ public class register extends AppCompatActivity {
 
             }
         });
-        TextView loginNowBtn = findViewById(R.id.loginNow);
+        //TextView loginNowBtn = findViewById(R.id.loginNow);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +78,7 @@ public class register extends AppCompatActivity {
                             }
                             else{
 
-                                databaseReference.child("users").child(phoneTxt).child("fullname").setValue(p);
+                                databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                                 databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
 
                                 Toast.makeText(register.this,"User registered successfully.", Toast.LENGTH_SHORT).show();
@@ -101,12 +101,12 @@ public class register extends AppCompatActivity {
 
             }
         });
-        loginNowBtn.setOnClickListener(new View.OnClickListener() {
+        /*loginNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
 }
 
