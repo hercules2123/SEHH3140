@@ -46,14 +46,6 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            }
-        });
-        //TextView loginNowBtn = findViewById(R.id.loginNow);
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
 
 
                 String phoneTxt = et1.getText().toString();
@@ -76,7 +68,7 @@ public class register extends AppCompatActivity {
                                 String getPassword = snapshot.child(phoneTxt).child("fullname").getValue(String.class);
 
                                 if(getPassword.equals(phoneTxt)){
-                                    Toast.makeText(register.this, "no good", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(register.this, "the username is already registered", Toast.LENGTH_SHORT).show();
                                 }else{
 
                                     databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
