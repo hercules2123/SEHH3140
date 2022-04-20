@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ public class login extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     EditText et1,et2 ;
     Button register,login,guest;
-    String user;
+    String user,phoneTxt;
 
 
 
@@ -41,10 +42,10 @@ public class login extends AppCompatActivity {
         guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pass2();
                 Intent intent = new Intent();
                 intent.setClass(com.example.sehh3140.login.this, MainActivity2.class);
                 startActivity(intent);
-
             }
         });
         register.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +61,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                 String phoneTxt = et1.getText().toString();
+                phoneTxt = et1.getText().toString();
                  String passwordTxt = et2.getText().toString();
                 sharedpreferences = getSharedPreferences(phoneTxt,Context.MODE_PRIVATE);
                 if(phoneTxt.isEmpty() || passwordTxt.isEmpty()){
@@ -80,10 +81,7 @@ public class login extends AppCompatActivity {
                                     Toast.makeText(login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
 
                                     startActivity(new Intent(login.this, MainActivity2.class));
-                                    Bundle bundle =new Bundle();
-                                    bundle.putString("key",phoneTxt);
-                                    userinfo userinfo=new userinfo();
-                                    userinfo.setArguments(bundle);
+                                     pass1();
                                     finish();
                                 }
                                 else{
@@ -106,6 +104,24 @@ public class login extends AppCompatActivity {
         });
 
     }
+
+    public void pass1(){
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("key", phoneTxt);
+        editor.commit();
+    }
+    public void pass2(){
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("key", null);
+        editor.commit();
+    }
+
 
 
 }
