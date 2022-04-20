@@ -16,7 +16,8 @@ public class couponview extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    TextView a;
+    String c;
+    TextView a,b;
     public couponview() {
         // Required empty public constructor
     }
@@ -45,8 +46,13 @@ public class couponview extends Fragment {
         View view = inflater.inflate(R.layout.fragment_couponview, container, false);
 
         a=view.findViewById(R.id.cvtv1);
+        b=view.findViewById(R.id.cvtv2);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        a.setText(sharedPreferences.getString("key","hello"));
+        c=sharedPreferences.getString("key",null);
+        if(c!=null){
+            a.setText(c);
+            b.setText("Account: ");
+        }
 
         return view;
     }

@@ -17,7 +17,8 @@ public class changepassword extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    TextView a;
+    String c;
+    TextView a,b;
 
     public changepassword() {
         // Required empty public constructor
@@ -47,8 +48,13 @@ public class changepassword extends Fragment {
         View view =inflater.inflate(R.layout.fragment_changepassword, container, false);
 
         a=view.findViewById(R.id.cptv1);
+        b=view.findViewById(R.id.cptv2);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        a.setText(sharedPreferences.getString("key","hello"));
+        c=sharedPreferences.getString("key",null);
+        if(c!=null){
+            a.setText(c);
+            b.setText("Account: ");
+        }
 
 
 

@@ -4,11 +4,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +25,9 @@ public class userinfo extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    TextView a;
+    Button userinfoBtn;
+    TextView a,b;
+    String c;
 
     public userinfo() {
         // Required empty public constructor
@@ -53,11 +57,25 @@ public class userinfo extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_userinfo, container, false);
 
-
+        personal personal=new personal();
         a=view.findViewById(R.id.a);
+        b=view.findViewById(R.id.b);
+        userinfoBtn=view.findViewById(R.id.userinfobtn);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        a.setText(sharedPreferences.getString("key","hello"));
-
+        c=sharedPreferences.getString("key",null);
+        if(c!=null){
+            a.setText(c);
+            b.setText("Account: ");
+            userinfoBtn.setVisibility(View.VISIBLE);
+        }
+         userinfoBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.Fragment, personal);
+            transaction.commit();
+          }
+         });
 
 
 

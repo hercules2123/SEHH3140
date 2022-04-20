@@ -6,10 +6,30 @@
     tools:context=".couponview">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/cvtv1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cvtv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/cvtv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_weight="1"
+            android:text="請登入"
+            android:textColor="#000000"
+            android:textSize="34sp" />
+
+    </LinearLayout>
 
 </FrameLayout>
