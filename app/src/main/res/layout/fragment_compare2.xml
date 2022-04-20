@@ -7,38 +7,32 @@
     tools:context=".compare2">
 
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <Button
+            android:id="@+id/compare2_returnbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="返回上一頁" />
 
-            <Button
-                android:id="@+id/compare2_returnbutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="返回上一頁" />
+        <EditText
+            android:id="@+id/compareprice2_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/compareprice2_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:minHeight="48dp" />
+        <ListView
+            android:id="@+id/compareprice2_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ListView
-                android:id="@+id/compareprice2_lv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        </ListView>
 
-            </ListView>
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

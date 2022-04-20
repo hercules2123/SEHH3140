@@ -20,6 +20,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -65,6 +67,12 @@ public class compare3 extends Fragment {
     String jhceshop_name;
     String jhceshop_product;
     String jhceshop_price;
+
+    ListView lv;
+
+    EditText ed;
+
+    Button compare2btn;
 
 
     SharedPreferences sharedpreferences;
@@ -117,6 +125,11 @@ public class compare3 extends Fragment {
         zstore_productDetailtv = view.findViewById(R.id.zstore_productDetail);
         zstore_pricetv = view.findViewById(R.id.zstore_price);
         zstore_Linktv = view.findViewById(R.id.zstore_Link);
+
+        lv = view.findViewById(R.id.compareprice2_lv);
+        ed = view.findViewById(R.id.compareprice2_et);
+        compare2btn =view.findViewById(R.id.compare2_returnbutton);
+
         sharedpreferences = getActivity().getSharedPreferences(selected, //create a sharedpreferences
                 Context.MODE_PRIVATE);
 
@@ -135,13 +148,15 @@ public class compare3 extends Fragment {
             startASycnc1(website1,website2,website3);
 
         compare2 compare2 = new compare2();
+            Fragment fragment = getFragmentManager().findFragmentById(R.id.Fragment);
             compare3btn= view.findViewById(R.id.compare3_returnbutton);
             compare3btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, compare2);
+                    transaction.remove(fragment);
                     transaction.commit();
+
                 }
             });
 
@@ -168,9 +183,7 @@ public class compare3 extends Fragment {
     }
 
     public void startASycnc1(String website1 ,String website2,String website3 ) {
-        Log.i("mytag", "hi1" );
         new StartAsyncTask1().execute(website1,website2,website3);
-        Log.i("mytag", "hi2" );
     }
 
 
@@ -194,18 +207,18 @@ public class compare3 extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressBar.setVisibility(View.GONE);
-            progressBar.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out));
-            taskFinish(parknshop_name, parknshop_product,parknshop_price,zstore_name,zstore_product,zstore_price,jhceshop_name,jhceshop_product,jhceshop_price);
-
+            try{
+                progressBar.setVisibility(View.GONE);
+                progressBar.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out));
+                taskFinish(parknshop_name, parknshop_product, parknshop_price, zstore_name, zstore_product, zstore_price, jhceshop_name, jhceshop_product, jhceshop_price);
+            }catch (Exception e){
+                throw e;
+            }
         }
 
         @Override
         protected Void doInBackground(String... strings) {
             try {
-
-                Log.i("mytag", "hi:" );
-
 
                 Document doc = Jsoup.connect(strings[0]).get();
                 Document doc1 = Jsoup.connect(strings[1]).get();
@@ -229,11 +242,6 @@ public class compare3 extends Fragment {
                 text2 = text2.replaceAll(" ", ";");
                 zstoredata = text2.split(";");
 
-                Log.i("TAG", "doInBackground: zstore_name"  + "//" +zstoredata[0] + " aaa " + zstoredata[1]);
-
-
-
-
                  parknshop_name =parknshop_brandname.text()+" "+parknshop_productname.text() ;
                  parknshop_product = parknshop_unit.text();
                  parknshop_price = parknshop_priceWB.text();
@@ -245,21 +253,6 @@ public class compare3 extends Fragment {
                  jhceshop_name = jhcedata[0];
                  jhceshop_product = jhcedata[1];
                  jhceshop_price =jhceshop_priceWB.text();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             }catch(Exception e) {
                 Log.i("mytag", e.toString());

@@ -59,7 +59,7 @@ public class compare extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_compare, container, false);
 
-        sharedpreferences = getActivity().getSharedPreferences(selected, //create a sharedpreferences
+        sharedpreferences = getActivity().getSharedPreferences(selected,
                 Context.MODE_PRIVATE);
         compare2 compare2 =new compare2();
         lv2 = view.findViewById(R.id.lv2);
@@ -79,8 +79,6 @@ public class compare extends Fragment {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.Fragment, compare2);
                     transaction.commit();
-                    Log.i("mytag", b[position]);
-
 
                 }else if(position==1){
                     String word = b[position];
@@ -89,8 +87,6 @@ public class compare extends Fragment {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.Fragment, compare2);
                     transaction.commit();
-                    Log.i("mytag", b[position]);
-
 
 
                 }else if(position==2){
@@ -100,7 +96,7 @@ public class compare extends Fragment {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.Fragment, compare2);
                     transaction.commit();
-                    Log.i("mytag", b[position]);
+
 
                 }else if(position==3){
                     String word = b[position];
@@ -109,7 +105,7 @@ public class compare extends Fragment {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.Fragment, compare2);
                     transaction.commit();
-                    Log.i("mytag", b[position]);
+
 
                 }
 
