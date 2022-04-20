@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31401/app/src/main/res/layout/activity_main.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31401/app/src/main/res/layout/activity_main2.xml" value="0.1875" />
-        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31401/app/src/main/res/layout/activity_register.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/activity_main2.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/activity_register.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/comparelistview.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/comparelistview2.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_compare2.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_compare3.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/fragment_couponview.xml" value="0.1875" />
+        <entry key="..\:/Users/likaw/AndroidStudioProjects/SEHH31402/app/src/main/res/layout/listview.xml" value="0.1875" />
       </map>
     </option>
   </component>

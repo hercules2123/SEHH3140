@@ -62,8 +62,11 @@
                     android:id="@+id/loginet2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:elegantTextHeight="false"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColor="#000000" />
 
             </TableRow>
 
@@ -79,8 +82,11 @@
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:text="register" />
+                android:backgroundTint="#F3F2F2"
+                android:text="register"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/login"

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -34,10 +35,11 @@ public class compare2 extends Fragment {
     public static final String selected = "selected";
     public static final String data = "data";
     String word;
+    Button compare2btn;
 
     //final static  String DATA_RECEIVE = "data_receive";
 
-
+    compare compare = new compare();
     compare3 compare3 =new compare3();
 
 
@@ -169,40 +171,6 @@ public class compare2 extends Fragment {
                         transaction.commit();
                         break;
                 }
-                /*
-                if(word=="零食"){
-
-                }else if(word=="麵類"){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Website1",noodle[1][position]);
-                    bundle.putString("Website2",noodle[2][position]);
-                    bundle.putString("Website3",noodle[3][position]);
-
-                    compare3 fragment = new compare3();
-                    fragment.setArguments(bundle);
-
-                    transaction.replace(R.id.Fragment, compare3);
-                    transaction.commit();
-                }else if(word=="罐頭"){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Website1",can[1][position]);
-                    bundle.putString("Website2",can[2][position]);
-                    bundle.putString("Website3",can[3][position]);
-
-                    compare3 fragment = new compare3();
-                    fragment.setArguments(bundle);
-
-                }else if(word=="飲品"){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Website1",drink[1][position]);
-                    bundle.putString("Website2",drink[2][position]);
-                    bundle.putString("Website3",drink[3][position]);
-
-                    compare3 fragment = new compare3();
-                    fragment.setArguments(bundle);
-
-                }*/
-
 
             }});
 
@@ -226,6 +194,15 @@ public class compare2 extends Fragment {
                 compare2.this.adapter.getFilter().filter(s);
             }
         });
+
+        compare2btn =view.findViewById(R.id.compare2_returnbutton);
+        compare2btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return view;
 
     }

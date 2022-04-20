@@ -50,37 +50,46 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="日本城"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/jhceshop_productName"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/jhceshop_productDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/jhceshop_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/jhceshop_Link"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:autoLink="all"
                         android:clickable="true"
                         android:text="www.example.com"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -95,37 +104,46 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="百佳"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/parknshop_productName"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/parknshop_productDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/parknshop_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/parknshop_Link"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:autoLink="all"
                         android:clickable="true"
                         android:text="www.example.com"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
 
                 </LinearLayout>
 
@@ -141,37 +159,46 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="士多"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/zstore_productName"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/zstore_productDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/zstore_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:text=""
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/zstore_Link"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:autoLink="all"
                         android:clickable="true"
                         android:text="www.example.com"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
