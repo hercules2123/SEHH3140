@@ -95,6 +95,17 @@ public class game extends Fragment {
         }
     }
 
+    public  boolean onTouchEvent(MotionEvent event) {
+        if (start_flg) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                action_flg=true;
+            }  else if(event.getAction()==MotionEvent.ACTION_UP){
+                action_flg=false;
+            }
+        }
+        return  true;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -257,20 +268,13 @@ public class game extends Fragment {
         });
         // Inflate the layout for this fragment
 
+
+
         return view;
     }
 
 
-    public  boolean onTouchEvent(MotionEvent event) {
-        if (start_flg) {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                action_flg=true;
-            }  else if(event.getAction()==MotionEvent.ACTION_UP){
-                action_flg=false;
-            }
-        }
-        return  true;
-    }
+
 
 
     public  void changePos(){
@@ -397,7 +401,6 @@ public class game extends Fragment {
         black.setY(blackY);
 
 
-
         //Move Box
 
         if(action_flg){
@@ -421,6 +424,7 @@ public class game extends Fragment {
         box.setX(boxX);
         // scoreLabel.setText("Score:"+ score);
         scoreLabel.setText("Score:"+ score);
+
     }
 
 

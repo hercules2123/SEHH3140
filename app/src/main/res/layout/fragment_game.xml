@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/bg"
+    android:orientation="vertical"
     android:padding="10dp"
     tools:context=".game">
 
@@ -34,7 +34,7 @@
         <Button
             android:id="@+id/btn2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/ic_stop_btn3home"
             android:visibility="invisible" />
@@ -42,7 +42,7 @@
         <Button
             android:id="@+id/pauseGame"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:drawable/ic_media_pause"
             android:visibility="invisible" />
@@ -51,9 +51,10 @@
 
     <FrameLayout
         android:id="@+id/gameFrame"
-        android:layout_width="400dp"
-        android:layout_height="500dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
         android:background="#3F51B5">
 
         <ImageView
@@ -115,7 +116,7 @@
         <LinearLayout
             android:id="@+id/startLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical">
 
@@ -183,8 +184,6 @@
         </LinearLayout>
 
     </FrameLayout>
-
-
 
 
 </LinearLayout>
