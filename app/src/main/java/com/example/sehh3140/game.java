@@ -220,18 +220,17 @@ public class game extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             coupon ="example code";
-                            if(snapshot.hasChild(c)) {
+                            if(snapshot.hasChild(c)){
                                 String getCoupon = snapshot.child(c).child("coupon").getValue(String.class);
-                                if (getCoupon.equals(coupon)) {
+                                if(getCoupon.equals(coupon)){
                                     Toast.makeText(getActivity(), "你已擁有一張優惠券", Toast.LENGTH_SHORT).show();
                                 }
+                            }else {
+                                databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                                Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                                pass3();
+                            }
 
-                                     else {
-                                        databaseReference.child("users").child(c).child("coupon").setValue(coupon);
-                                        Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
-                                        pass3();
-                                    }
-                                }
                             }
 
 
@@ -248,40 +247,52 @@ public class game extends Fragment {
             }
 
         });
-        pauseGame.setOnClickListener(new View.OnClickListener(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+        quitGame.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(stop == false){
-                    stop = true;
 
-                    timer.cancel();
-                    timer = null;
+                mark = score;
+                if(mark>150){
+                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
 
-                    Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn1);
-                    pauseGame.setBackgroundDrawable(stopGame);
-                    gameFrame.setVisibility(View.VISIBLE);
-                }else{
-                    stop = false;
-                    Drawable stopGame = getResources().getDrawable(R.drawable.ic_stop_btn2end);
-                    pauseGame.setBackgroundDrawable(stopGame);
-                    gameFrame.setVisibility(View.VISIBLE);
 
-                    timer = new Timer();
-                    timer.schedule(new TimerTask() {
                         @Override
-                        public void run() {
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    changePos();
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            coupon ="example code";
+                            if(snapshot.hasChild(c)){
+                                String getCoupon = snapshot.child(c).child("coupon").getValue(String.class);
+                                if(getCoupon.equals(coupon)){
+                                    Toast.makeText(getActivity(), "你已擁有一張優惠券", Toast.LENGTH_SHORT).show();
                                 }
-                            });
+                            }else {
+                                databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                                Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                                pass3();
+                            }
+
+
+
                         }
-                    }, 0, 50);
-                    ;
 
-                }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
+                        }
+                    });
+                }else{Toast.makeText(getActivity(), "真可惜你的分數不足未能獲得優惠券下次努力吧", Toast.LENGTH_LONG).show();}
 
 
             }
