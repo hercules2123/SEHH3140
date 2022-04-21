@@ -76,9 +76,6 @@ public class game extends Fragment {
     // private SharedPreferences settings;
 
     String c,coupon;
-    Calendar calendar;
-    SimpleDateFormat dateFormat;
-    String date;
     public game() {
         // Required empty public constructor
 
@@ -114,9 +111,8 @@ public class game extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
 
-        calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        date = dateFormat.format(calendar.getTime());
+        Calendar calendar = Calendar.getInstance();
+        String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
 
         gameFrame=view.findViewById(R.id.gameFrame);
