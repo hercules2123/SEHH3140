@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +21,7 @@ public class register extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140database-f8582-default-rtdb.firebaseio.com/");
 
     EditText et1,et2,et3;
-    Button register,cancel;
+    Button register1,cancel;
 
 
     @Override
@@ -33,7 +32,7 @@ public class register extends AppCompatActivity {
         et1 = findViewById(R.id.registeret1);
         et2 = findViewById(R.id.registeret2);
         et3 = findViewById(R.id.registeret3);
-        register = findViewById(R.id.registerregister);
+        register1 = findViewById(R.id.register1);
 
         cancel = findViewById(R.id.registercancel);
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +43,9 @@ public class register extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        register.setOnClickListener(new View.OnClickListener() {
+        register1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
 
                 String phoneTxt = et1.getText().toString();
@@ -71,13 +69,12 @@ public class register extends AppCompatActivity {
 
                                 if(getPassword.equals(phoneTxt)){
                                     Toast.makeText(register.this, "用戶名稱已被註冊", Toast.LENGTH_SHORT).show();
-                                }else{
+                                }
+                                else if(getPassword!=(phoneTxt)){
 
                                     databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                                     databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-
                                     Toast.makeText(register.this,"成功註冊", Toast.LENGTH_SHORT).show();
-                                    finish();
                                 }
                             }
 

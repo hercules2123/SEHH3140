@@ -111,7 +111,7 @@
                 android:textColor="#000000" />
 
             <Button
-                android:id="@+id/registerregister"
+                android:id="@+id/register1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
