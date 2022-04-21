@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Account"
+                    android:text="帳戶名稱"
                     android:textColor="#000000"
                     android:textSize="34sp" />
 
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Password"
+                    android:text="密碼"
                     android:textColor="#000000"
                     android:textSize="34sp" />
 
@@ -85,7 +85,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="#F3F2F2"
-                android:text="register"
+                android:text="註冊"
                 android:textColor="#000000" />
 
             <Button
@@ -95,7 +95,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="#F3F2F2"
-                android:text="login"
+                android:text="登入"
                 android:textColor="#000000" />
         </LinearLayout>
 
@@ -106,7 +106,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:backgroundTint="#F3F2F2"
-            android:text="Guest"
+            android:text="訪客"
             android:textColor="#000000" />
 
         <ImageView
