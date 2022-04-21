@@ -18,7 +18,7 @@ public class couponview extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    String c;
+    String c,d;
     TextView a,b,cvTv3,cvTv4,cvTv5;
     Button cvbtn1;
     public couponview() {
@@ -57,11 +57,13 @@ public class couponview extends Fragment {
         cvTv5=view.findViewById(R.id.cvtv5);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
+
         if(c!=null){
             a.setText(c);
             b.setText("Account: ");
             cvTv3.setText("Discount Code: ");
-            cvTv4.setText("");
+            d=sharedPreferences.getString("coupon","你沒有任何優惠券");
+            cvTv4.setText(d);
             cvTv5.setText("(Due date: 31/12/2022)");
             cvbtn1.setVisibility(View.VISIBLE);
         }

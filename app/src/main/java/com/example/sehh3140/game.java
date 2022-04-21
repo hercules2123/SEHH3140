@@ -1,11 +1,14 @@
 package com.example.sehh3140;
 
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,28 +20,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 
 public class game extends Fragment {
-
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://sehh3140database-f8582-default-rtdb.firebaseio.com/");
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private FrameLayout gameFrame;
     private  int frameHeight, frameWidth, initialFrameWidth;
     private LinearLayout startLayout;
-
-    //Image
     private ImageView box, black, orange,orange1,orange2,orange3, pink;
     private Drawable imageBoxRight, imageBoxLeft;
 
@@ -70,6 +71,7 @@ public class game extends Fragment {
     private int timeCount;
     // private SharedPreferences settings;
 
+    String c,coupon;
     public game() {
         // Required empty public constructor
 
@@ -102,6 +104,9 @@ public class game extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_game, container, false);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        c=sharedPreferences.getString("key",null);
+
 
 
 
@@ -120,6 +125,13 @@ public class game extends Fragment {
         quitGame = view.findViewById(R.id.quitGame);
         startGame = view.findViewById(R.id.startGame);
         pauseGame = view.findViewById(R.id.pauseGame);
+        TextView gameTv1=view.findViewById(R.id.gametv1);
+
+        if(c!=null){
+            gameFrame.setVisibility(View.VISIBLE);
+            gameTv1.setVisibility(View.VISIBLE);
+            scoreLabel.setText("Score:");
+        }
 
 
         imageBoxLeft=getResources().getDrawable(R.drawable.car);
@@ -200,7 +212,25 @@ public class game extends Fragment {
 
                 mark = score;
                 if(mark>150){
-                    Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            coupon ="example code";
+
+                            databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                            Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                            pass3();
+
+
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }else{Toast.makeText(getActivity(), "真可惜你的分數不足未能獲得優惠券下次努力吧", Toast.LENGTH_LONG).show();}
 
 
@@ -479,6 +509,14 @@ public class game extends Fragment {
 
 
 
+    }
+    public void pass3(){
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("coupon", coupon);
+        editor.commit();
     }
 
 
