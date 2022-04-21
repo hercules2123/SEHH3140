@@ -67,18 +67,15 @@ public class register extends AppCompatActivity {
 
                             if(snapshot.hasChild(phoneTxt)){
                                 String getPassword = snapshot.child(phoneTxt).child("fullname").getValue(String.class);
-
                                 if(getPassword.equals(phoneTxt)){
                                     Toast.makeText(register.this, "用戶名稱已被註冊", Toast.LENGTH_SHORT).show();
                                 }
-                                else{
-                                    Log.i("tag", "bug");
-                                    databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
-                                    databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-                                    Toast.makeText(register.this,"成功註冊", Toast.LENGTH_SHORT).show();
-                                }
+                            }else {
+                                databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
+                                databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
+                                Toast.makeText(register.this, "yeah", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
-
                         }
 
                         @Override
