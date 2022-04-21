@@ -73,9 +73,9 @@ public class changepassword extends Fragment {
         c=sharedPreferences.getString("key",null);
         if(c!=null){
             a.setText(c);
-            b.setText("Account: ");
-            cpTv3.setText("New password");
-            cpTv4.setText("Input new password again");
+            b.setText("帳戶: ");
+            cpTv3.setText("請輸入新密碼: ");
+            cpTv4.setText("請重複輸入新密碼: ");
             cpEt1.setVisibility(View.VISIBLE);
             cpEt2.setVisibility(View.VISIBLE);
             cpBtn1.setVisibility(View.VISIBLE);

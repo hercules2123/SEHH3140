@@ -65,7 +65,7 @@ public class userinfo extends Fragment {
         c=sharedPreferences.getString("key",null);
         if(c!=null){
             a.setText(c);
-            b.setText("Account: ");
+            b.setText("帳戶: ");
             userinfoBtn.setVisibility(View.VISIBLE);
         }
          userinfoBtn.setOnClickListener(new View.OnClickListener() {

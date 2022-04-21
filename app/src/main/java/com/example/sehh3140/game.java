@@ -112,11 +112,6 @@ public class game extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
 
-
-
-
-
-
         gameFrame=view.findViewById(R.id.gameFrame);
         startLayout=view.findViewById(R.id.startLayout);
         box=view.findViewById(R.id.car);
@@ -145,10 +140,10 @@ public class game extends Fragment {
         imageBoxRight=getResources().getDrawable(R.drawable.car);
         //High Score
 
+
         startGame.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
                 start_flg=true;
                 startLayout.setVisibility(View.INVISIBLE);
                 if(frameHeight==0){
@@ -161,7 +156,6 @@ public class game extends Fragment {
                     boxY=box.getY();
                 }
                 frameWidth=initialFrameWidth;
-
                 box.setX(0.0f);
                 black.setY(3000.0f);
                 orange.setY(3000.0f);
@@ -176,6 +170,7 @@ public class game extends Fragment {
                 orangeD=black.getY();
                 orangeF=black.getY();
                 pinkY=black.getY();
+                box.getX();
 
 
                 box.setVisibility(View.VISIBLE);
@@ -218,14 +213,14 @@ public class game extends Fragment {
             public void onClick(View view) {
 
                 mark = score;
-                if(mark>10){
+                if(mark>150){
                     databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             if(snapshot.hasChild(c)) {
-                                getNewCoupon = snapshot.child(c).child("coupon").getValue(String.class);
-                            }
+                                    getNewCoupon = snapshot.child(c).child("coupon").getValue(String.class);
+                                }
                                 databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -233,7 +228,7 @@ public class game extends Fragment {
                                         if (getNewCoupon == null) {
                                             databaseReference.child("users").child(c).child("coupon").setValue(coupon);
                                             Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
-                                            pass3();
+                                            scoreLabel.setText("Score : 0");
                                         } else {
                                             Toast.makeText(getActivity(), "你已擁有優惠券", Toast.LENGTH_SHORT).show();
                                         }
@@ -484,7 +479,7 @@ public class game extends Fragment {
         // scoreLabel.setText("Score:"+ score);
         scoreLabel.setText("Score:"+ score);
 
-        if(score > 10){ //frameWidth<=boxSize ||
+        if(score >= 150){ //frameWidth<=boxSize ||
             gameOver();//game over
         }
     }
@@ -510,6 +505,7 @@ public class game extends Fragment {
 
         //stop timer
         timer.cancel();
+        //23box.setX(0.0f);
 
         start_flg=false;
         // before showing 1 seconds
@@ -537,14 +533,7 @@ public class game extends Fragment {
 
 
     }
-    public void pass3(){
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("coupon", coupon);
-        editor.commit();
-    }
 
 
 

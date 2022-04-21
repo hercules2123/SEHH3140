@@ -73,7 +73,7 @@ public class register extends AppCompatActivity {
                             }else {
                                 databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                                 databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-                                Toast.makeText(register.this, "yeah", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(register.this, "已成功註冊帳戶", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         }
