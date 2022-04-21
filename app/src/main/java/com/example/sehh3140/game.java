@@ -476,7 +476,7 @@ public class game extends Fragment {
         // scoreLabel.setText("Score:"+ score);
         scoreLabel.setText("Score:"+ score);
 
-        if(score > 150){ //frameWidth<=boxSize ||
+        if(score == 150){ //frameWidth<=boxSize ||
             gameOver();//game over
         }
     }
