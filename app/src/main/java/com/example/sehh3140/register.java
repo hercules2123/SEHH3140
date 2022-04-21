@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,8 +71,8 @@ public class register extends AppCompatActivity {
                                 if(getPassword.equals(phoneTxt)){
                                     Toast.makeText(register.this, "用戶名稱已被註冊", Toast.LENGTH_SHORT).show();
                                 }
-                                else if(getPassword!=(phoneTxt)){
-
+                                else{
+                                    Log.i("tag", "bug");
                                     databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                                     databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
                                     Toast.makeText(register.this,"成功註冊", Toast.LENGTH_SHORT).show();
