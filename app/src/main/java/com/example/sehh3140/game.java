@@ -111,8 +111,7 @@ public class game extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
 
-        Calendar calendar = Calendar.getInstance();
-        String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
 
 
         gameFrame=view.findViewById(R.id.gameFrame);
@@ -221,24 +220,22 @@ public class game extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             coupon ="example code";
-                            if(snapshot.hasChild(c)){
+                            if(snapshot.hasChild(c)) {
                                 String getCoupon = snapshot.child(c).child("coupon").getValue(String.class);
-                                String getdate = snapshot.child(c).child("date").getValue(String.class);
-                                if(getCoupon.equals(coupon)){
+                                if (getCoupon.equals(coupon)) {
                                     Toast.makeText(getActivity(), "你已擁有一張優惠券", Toast.LENGTH_SHORT).show();
-                                }else if(getdate.equals(date)){
-                                    Toast.makeText(getActivity(), "你今天已獲取過優惠券", Toast.LENGTH_SHORT).show();
                                 }
-                            }else {
-                                databaseReference.child("users").child(c).child("coupon").setValue(coupon);
-                                databaseReference.child("users").child(c).child("date").setValue(date);
-                                Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
-                                pass3();
+
+                                     else {
+                                        databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                                        Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                                        pass3();
+                                    }
+                                }
                             }
 
 
 
-                        }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
@@ -472,7 +469,7 @@ public class game extends Fragment {
         // scoreLabel.setText("Score:"+ score);
         scoreLabel.setText("Score:"+ score);
 
-        if(score == 150){ //frameWidth<=boxSize ||
+        if(score > 150){ //frameWidth<=boxSize ||
             gameOver();//game over
         }
     }
