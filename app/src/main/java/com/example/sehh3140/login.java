@@ -88,11 +88,11 @@ public class login extends AppCompatActivity {
                                     finish();
                                 }
                                 else{
-                                    Toast.makeText(login.this, "用戶不存在", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(login.this, "密碼錯誤", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else{
-                                Toast.makeText(login.this, "密碼錯誤", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login.this, "用戶不存在", Toast.LENGTH_SHORT).show();
                             }
                         }
 
