@@ -73,7 +73,6 @@ public class register extends AppCompatActivity {
                             }else {
                                 databaseReference.child("users").child(phoneTxt).child("fullname").setValue(phoneTxt);
                                 databaseReference.child("users").child(phoneTxt).child("password").setValue(passwordTxt);
-                                databaseReference.child("users").child(phoneTxt).child("coupon").setValue("0");
                                 Toast.makeText(register.this, "yeah", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
