@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:visibility="visible"
     tools:context=".game">
 
     <LinearLayout
@@ -21,8 +20,7 @@
             android:text="目標分數:150"
             android:textColor="#000"
             android:textSize="20sp"
-            android:visibility="invisible"
-            android:layout_marginBottom="5dp"/>
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/scoreLevel"
