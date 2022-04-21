@@ -110,6 +110,7 @@ public class game extends Fragment {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
+        coupon ="example code";
 
 
 
@@ -219,21 +220,19 @@ public class game extends Fragment {
                     databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            coupon ="example code";
-                            if(snapshot.hasChild(c)) {
-                                String getCoupon = snapshot.child(c).child("coupon").getValue(String.class);
-                                if (getCoupon.equals(coupon)) {
-                                    Toast.makeText(getActivity(), "你已擁有一張優惠券", Toast.LENGTH_SHORT).show();
+
+                            if(snapshot.hasChild(c)){
+                                String getPassword = snapshot.child(c).child("coupon").getValue(String.class);
+                                if(getPassword.equals(coupon)){
+                                    Toast.makeText(getActivity(), "你已擁有優惠券", Toast.LENGTH_SHORT).show();
                                 }
-                            }
+                            }else {
 
-                                     else {
-                                        databaseReference.child("users").child(c).child("coupon").setValue(coupon);
-                                        Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
-                                        pass3();
-                                    }
-
+                                databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                                Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                                pass3();
                             }
+                        }
 
 
 

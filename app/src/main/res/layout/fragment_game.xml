@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="4dp"
         android:background="#3F51B5"
         android:visibility="invisible">
 
@@ -130,7 +130,7 @@
                 android:layout_marginBottom="5dp"
                 android:text="    接著貨品獲得分數\n仲要記住避開便便呀!!!"
                 android:textColor="#CDDC39"
-                android:textSize="23sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -141,7 +141,7 @@
                 android:layout_marginBottom="5dp"
                 android:text="按住畫面向右移動購物車\n    放開便會向左邊移動"
                 android:textColor="#FF9800"
-                android:textSize="23sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -151,7 +151,7 @@
                 android:layout_marginTop="10dp"
                 android:text="便便  =-10分"
                 android:textColor="#A4FF0000"
-                android:textSize="23sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -161,7 +161,7 @@
                 android:layout_gravity="center"
                 android:text="         蔬菜 = 10分\n         香蕉 = 15分\n         薯片 = 15分\n         牛扒 = 20分\n         零食 = 30分\n達到分數後按換取禮券\n          以得到禮券"
                 android:textColor="#8BC34A"
-                android:textSize="23sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <Button
@@ -171,7 +171,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="開始"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/quitGame"
@@ -180,7 +180,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="換取禮券"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
 
         </LinearLayout>
