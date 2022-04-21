@@ -216,11 +216,16 @@ public class game extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             coupon ="example code";
-
-                            databaseReference.child("users").child(c).child("coupon").setValue(coupon);
-                            Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
-                            pass3();
-
+                            if(snapshot.hasChild(c)){
+                                String getCoupon = snapshot.child(c).child("coupon").getValue(String.class);
+                                if(getCoupon.equals(coupon)){
+                                    Toast.makeText(getActivity(), "你已擁有一張優惠券", Toast.LENGTH_SHORT).show();
+                                }
+                            }else {
+                                databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                                Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
+                                pass3();
+                            }
 
 
 
