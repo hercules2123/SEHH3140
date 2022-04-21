@@ -4,6 +4,9 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -26,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -72,6 +76,9 @@ public class game extends Fragment {
     // private SharedPreferences settings;
 
     String c,coupon;
+    Calendar calendar;
+    SimpleDateFormat dateFormat;
+    String date;
     public game() {
         // Required empty public constructor
 
@@ -107,7 +114,9 @@ public class game extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
 
-
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        date = dateFormat.format(calendar.getTime());
 
 
         gameFrame=view.findViewById(R.id.gameFrame);
@@ -218,11 +227,15 @@ public class game extends Fragment {
                             coupon ="example code";
                             if(snapshot.hasChild(c)){
                                 String getCoupon = snapshot.child(c).child("coupon").getValue(String.class);
+                                String getdate = snapshot.child(c).child("date").getValue(String.class);
                                 if(getCoupon.equals(coupon)){
                                     Toast.makeText(getActivity(), "你已擁有一張優惠券", Toast.LENGTH_SHORT).show();
+                                }else if(getdate.equals(date)){
+                                    Toast.makeText(getActivity(), "你今天已獲取過優惠券", Toast.LENGTH_SHORT).show();
                                 }
                             }else {
                                 databaseReference.child("users").child(c).child("coupon").setValue(coupon);
+                                databaseReference.child("users").child(c).child("date").setValue(date);
                                 Toast.makeText(getActivity(), "恭喜你獲得了一張優惠券", Toast.LENGTH_LONG).show();
                                 pass3();
                             }
