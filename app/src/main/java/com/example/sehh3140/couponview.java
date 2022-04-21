@@ -4,11 +4,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class couponview extends Fragment {
@@ -17,7 +19,8 @@ public class couponview extends Fragment {
     private String mParam1;
     private String mParam2;
     String c;
-    TextView a,b;
+    TextView a,b,cvTv3,cvTv4,cvTv5;
+    Button cvbtn1;
     public couponview() {
         // Required empty public constructor
     }
@@ -45,14 +48,31 @@ public class couponview extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_couponview, container, false);
 
+        personal personal=new personal();
         a=view.findViewById(R.id.cvtv1);
         b=view.findViewById(R.id.cvtv2);
+        cvbtn1=view.findViewById(R.id.cvbtn1);
+        cvTv3=view.findViewById(R.id.cvtv3);
+        cvTv4=view.findViewById(R.id.cvtv4);
+        cvTv5=view.findViewById(R.id.cvtv5);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         c=sharedPreferences.getString("key",null);
         if(c!=null){
             a.setText(c);
             b.setText("Account: ");
+            cvTv3.setText("Discount Code: ");
+            cvTv4.setText("");
+            cvTv5.setText("(Due date: 31/12/2022");
+            cvbtn1.setVisibility(View.VISIBLE);
         }
+        cvbtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment, personal);
+                transaction.commit();
+            }
+        });
 
         return view;
     }
