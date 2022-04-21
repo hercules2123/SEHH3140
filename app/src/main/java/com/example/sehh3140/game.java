@@ -429,9 +429,7 @@ public class game extends Fragment {
              changeFrameWidth(frameWidth);
              //soundPlayer.playHitBlackSound();*/
 
-            if(score > 150){ //frameWidth<=boxSize ||
-                gameOver();//game over
-            }
+
         }
         if(blackY>frameHeight){
             blackY=-100;
@@ -465,6 +463,9 @@ public class game extends Fragment {
         // scoreLabel.setText("Score:"+ score);
         scoreLabel.setText("Score:"+ score);
 
+        if(score > 150){ //frameWidth<=boxSize ||
+            gameOver();//game over
+        }
     }
 
 
@@ -488,7 +489,7 @@ public class game extends Fragment {
 
         //stop timer
         timer.cancel();
-        timer=null;
+
         start_flg=false;
         // before showing 1 seconds
         try {
@@ -523,6 +524,8 @@ public class game extends Fragment {
         editor.putString("coupon", coupon);
         editor.commit();
     }
+
+
 
 
 
