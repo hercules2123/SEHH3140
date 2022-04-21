@@ -28,7 +28,7 @@ public class changepassword extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    String c,d,e;
+    String c;
     TextView a,b,cpTv3,cpTv4;
     Button cpBtn1,cpBtn2;
     EditText cpEt1,cpEt2;
@@ -83,30 +83,24 @@ public class changepassword extends Fragment {
             cpBtn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    d=cpEt1.getText().toString();
-                    e=cpEt2.getText().toString();
-                    if(d.isEmpty() || e.isEmpty() ){
-                        Toast.makeText(getActivity(),"請輸入所有資料", Toast.LENGTH_SHORT).show();
+                    String passwordTxt=cpEt1.getText().toString();
+                    String conPasswordTxt=cpEt2.getText().toString();
+                    if(passwordTxt.isEmpty() || conPasswordTxt.isEmpty() ){
+                        Toast.makeText(getActivity(),"請輸入所有密碼", Toast.LENGTH_SHORT).show();
                     }
-                    else if(!d.equals(e)){
+                    else if(!passwordTxt.equals(conPasswordTxt)){
                         Toast.makeText(getActivity(),"兩個密碼並不相同", Toast.LENGTH_SHORT).show();
                     }else{
                         databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(d)){
-                                    String getPassword = snapshot.child(d).child("password").getValue(String.class);
-                                    if(getPassword.equals(d)){
-                                        Toast.makeText(getActivity(), "新密碼與舊密碼相同", Toast.LENGTH_SHORT).show();
-                                    }else{
 
-
-                                        databaseReference.child("users").child(d).child("password").setValue(e);
-
+                                        databaseReference.child("users").child(c).child("password").setValue(passwordTxt);
                                         Toast.makeText(getActivity(),"更改成功", Toast.LENGTH_SHORT).show();
-                                        getActivity().finish();
-                                    }
-                                }
+
+
+
+
                             }
 
                             @Override

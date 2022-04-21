@@ -62,7 +62,7 @@ public class couponview extends Fragment {
             b.setText("Account: ");
             cvTv3.setText("Discount Code: ");
             cvTv4.setText("");
-            cvTv5.setText("(Due date: 31/12/2022");
+            cvTv5.setText("(Due date: 31/12/2022)");
             cvbtn1.setVisibility(View.VISIBLE);
         }
         cvbtn1.setOnClickListener(new View.OnClickListener() {
