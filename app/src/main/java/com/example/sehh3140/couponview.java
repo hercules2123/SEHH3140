@@ -80,7 +80,7 @@ public class couponview extends Fragment {
             cvTv5.setVisibility(View.VISIBLE);
             b.setText("帳戶: ");
             cvTv3.setText("優惠券代碼: ");
-            cvTv4.setText("(最後限期: 31/12/2022)");
+            cvTv5.setText("(最後限期: 31/12/2022)");
         databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
