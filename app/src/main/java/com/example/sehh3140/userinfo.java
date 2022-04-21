@@ -66,7 +66,6 @@ public class userinfo extends Fragment {
         if(c!=null){
             a.setText(c);
             b.setText("帳戶: ");
-            userinfoBtn.setVisibility(View.VISIBLE);
         }
          userinfoBtn.setOnClickListener(new View.OnClickListener() {
         @Override

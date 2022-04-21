@@ -76,8 +76,11 @@ public class changepassword extends Fragment {
             b.setText("帳戶: ");
             cpTv3.setText("請輸入新密碼: ");
             cpTv4.setText("請重複輸入新密碼: ");
+            cpBtn2.setText("取消");
             cpEt1.setVisibility(View.VISIBLE);
             cpEt2.setVisibility(View.VISIBLE);
+            cpTv3.setVisibility(View.VISIBLE);
+            cpTv4.setVisibility(View.VISIBLE);
             cpBtn1.setVisibility(View.VISIBLE);
             cpBtn2.setVisibility(View.VISIBLE);
             cpBtn1.setOnClickListener(new View.OnClickListener() {

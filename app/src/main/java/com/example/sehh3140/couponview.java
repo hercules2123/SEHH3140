@@ -73,6 +73,14 @@ public class couponview extends Fragment {
         cvTv5=view.findViewById(R.id.cvtv5);
 
         if(c!=null){
+            b.setVisibility(View.VISIBLE);
+            a.setVisibility(View.VISIBLE);
+            cvTv3.setVisibility(View.VISIBLE);
+            cvTv4.setVisibility(View.VISIBLE);
+            cvTv5.setVisibility(View.VISIBLE);
+            b.setText("帳戶: ");
+            cvTv3.setText("優惠券代碼: ");
+            cvTv4.setText("(最後限期: 31/12/2022)");
         databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -87,13 +95,7 @@ public class couponview extends Fragment {
             }
 
             });}
-        else {
-            b.setText("");
-            cvTv3.setText("");
-            cvTv4.setText("");
-            cvTv5.setText("");
 
-        }
 
         cvbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
