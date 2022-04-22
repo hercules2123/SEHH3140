@@ -114,16 +114,16 @@ public class changepassword extends Fragment {
                     }
                 }
             });
-            cpBtn2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Fragment, personal);
-                    transaction.commit();
-                }
-            });
-        }
 
+        }
+        cpBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment, personal);
+                transaction.commit();
+            }
+        });
 
 
         return view;
